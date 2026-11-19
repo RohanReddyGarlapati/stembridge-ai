@@ -162,9 +162,9 @@ describe("catalog integrity", () => {
 });
 
 describe("catalog loading modes", () => {
-  it.skipIf(!seedEnabled)("contains exactly two seed careers and six example.com resources", () => {
+  it.skipIf(!seedEnabled)("contains exactly three seed careers and six example.com resources", () => {
     const catalog = loadCatalog(careersJson, resourcesJson);
-    expect(catalog.careerIds).toHaveLength(2);
+    expect(catalog.careerIds).toHaveLength(3);
     expect(resourcesJson).toHaveLength(6);
     for (const { url } of resourcesJson) {
       expect(url).toMatch(/^https:\/\/example\.com\/stembridge-seed\//);
@@ -192,10 +192,11 @@ describe("catalog loading modes", () => {
     expect(Object.isFrozen(resources[0])).toBe(false);
   });
 
-  it("rejects incomplete data and independently rejects example.com at release size", () => {
-    vi.stubEnv("CATALOG_SEED", undefined);
+  it("rejects incomplete data and independently rejects example.com at release size with the seed flag in production", () => {
+    localSeedMode();
+    vi.stubEnv("NODE_ENV", "production");
     const { careers, resources } = releaseFixture();
-    expectCatalogIssue(() => loadCatalog(careers.slice(0, 2), resources), { code: "too_small", minimum: 6, path: [] });
+    expectCatalogIssue(() => loadCatalog(careers.slice(0, 3), resources), { code: "too_small", minimum: 6, path: [] });
     expectCatalogIssue(() => loadCatalog(careers, resources.slice(0, 6)), { code: "too_small", minimum: 25, path: [] });
     resources[0].url = "https://example.com/catalog-test/placeholder";
     expectCatalogIssue(() => loadCatalog(careers, resources), {
@@ -214,7 +215,7 @@ describe("catalog loading modes", () => {
     vi.stubEnv(key, value);
     expect(isCatalogSeedEnabled()).toBe(false);
     const { careers, resources } = releaseFixture();
-    expectCatalogIssue(() => loadCatalog(careers.slice(0, 2), resources.slice(0, 6)), {
+    expectCatalogIssue(() => loadCatalog(careers.slice(0, 3), resources.slice(0, 6)), {
       code: "too_small", minimum: 6, path: [],
     });
   });

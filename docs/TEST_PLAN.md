@@ -47,7 +47,7 @@ Because the MVP is deterministic, expected outputs are exact. Engine tests asser
 | U-ENG-10 | `roadmap("robotics-engineer")` | Steps in catalog order, `order` 1..n, resources hydrated with catalog URLs. |
 | U-ENG-11 | Unknown career ID | Throws (the roadmap request schema checks catalog membership before the route calls the engine). |
 
-Engine coverage also checks common student expressions and their recommendation reasons, catalog-order filling after partial matches, detached recommendation and roadmap outputs, and the strict three-item response schema's rejection of the two-career seed result.
+Engine coverage also checks common student expressions and their recommendation reasons, catalog-order filling after partial matches, detached recommendation and roadmap outputs, and that ranked and fallback results from the three-career seed pass the strict response schema with three distinct catalog IDs.
 
 ### 2.3 API helpers (`tests/unit/api.test.ts`)
 | ID | Scenario | Expected |

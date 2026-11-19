@@ -137,5 +137,47 @@
         ]
       }
     ]
+  },
+  {
+    "id": "software-engineer",
+    "title": "Software Engineer (development seed)",
+    "summary": "Designs, builds, tests, and maintains software.",
+    "field": "technology",
+    "tags": ["coding", "design"],
+    "keySkills": ["Programming", "Software design", "Testing"],
+    "steps": [
+      {
+        "id": "software-plan",
+        "title": "Plan a small app",
+        "description": "Describe a problem your app could solve and sketch what a user would do first.",
+        "skills": ["Software design"],
+        "duration": "1 week",
+        "resourceIds": ["seed-prototyping"]
+      },
+      {
+        "id": "software-code",
+        "title": "Build a working version",
+        "description": "Use functions and simple data structures to turn the sketch into a small working program.",
+        "skills": ["Programming"],
+        "duration": "2 weeks",
+        "resourceIds": ["seed-programming"]
+      },
+      {
+        "id": "software-test",
+        "title": "Test common and unexpected inputs",
+        "description": "Write down expected results for a few ordinary and edge cases, then check what the program actually does.",
+        "skills": ["Testing", "Debugging"],
+        "duration": "1 week",
+        "resourceIds": ["seed-programming"]
+      },
+      {
+        "id": "software-iterate",
+        "title": "Improve the app from feedback",
+        "description": "Ask someone to try the app, choose one improvement based on what you observe, and test the revised version.",
+        "skills": ["Software design", "Testing"],
+        "duration": "1 week",
+        "resourceIds": ["seed-prototyping"]
+      }
+    ]
   }
 ]

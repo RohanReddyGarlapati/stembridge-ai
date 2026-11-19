@@ -169,19 +169,18 @@ describe("recommendations", () => {
     }
   });
 
-  it.skipIf(!isCatalogSeedEnabled())("returns both actual seed careers without padding for matches and fallback", async () => {
+  it.skipIf(!isCatalogSeedEnabled())("returns three distinct catalog careers in the strict response shape", async () => {
     const catalog = await vi.importActual<typeof import("../../lib/catalog")>("../../lib/catalog");
     vi.mocked(listCareers).mockImplementation(catalog.listCareers);
-    const ranked = recommend({ interests: "robots", tags: [] }).map(({ id }) => id);
-    expect(ranked).toHaveLength(2);
-    expect(ranked[0]).toBe("robotics-engineer");
-    expect(new Set(ranked)).toEqual(new Set(catalog.careerIds));
-    expect(recommend({ interests: "", tags: [] }).map(({ id }) => id)).toEqual(catalog.careerIds);
-    const careers = recommend({ interests: "robots", tags: [] });
-    const response = recommendResponseSchema.safeParse({ personalization: "none", careers });
-    expect(response.error?.issues).toContainEqual(
-      expect.objectContaining({ code: "too_small", minimum: 3, path: ["careers"] }),
-    );
+    for (const interests of ["robots", "asdfgh"]) {
+      const careers = recommend({ interests, tags: [] });
+      const response = recommendResponseSchema.parse({ personalization: "none", careers });
+      const ids = response.careers.map(({ id }) => id);
+      expect(ids).toHaveLength(3);
+      expect(new Set(ids)).toEqual(new Set(catalog.careerIds));
+      expect(ids[0]).toBe("robotics-engineer");
+      if (interests === "asdfgh") expect(ids).toEqual(catalog.careerIds);
+    }
   });
 
   it("leaves invalid request payloads at the schema boundary", () => {

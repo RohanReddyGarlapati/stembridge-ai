@@ -150,7 +150,7 @@ Resources hold no career references. Mapping lives only in `steps[].resourceIds`
 
 The server root layout intentionally imports `lib/catalog.ts` for its validation side effect. Next.js evaluates that import during `next build`, so invalid catalog data blocks the build even before a route consumes the catalog. The loader validates once at module load and deep-freezes the parsed records before exposing the lookups.
 
-For local development with the temporary catalog, add `CATALOG_SEED=1` to `.env.local` and run `npm run dev`. Run `npm run test:seed` for the local seed suite. Use `npm test` without the flag to run the release check against the real files. Production and CI always enforce release counts, reject `example.com` URLs, and require every enum tag to appear in a career. Seed mode still validates record shapes, duplicate IDs, links, and resource references. The seed resources use `2000-01-01` as a sentinel date and have no verified educational links.
+For local development with the temporary catalog, add `CATALOG_SEED=1` to `.env.local` and run `npm run dev`. Run `npm run test:seed` for the local seed suite. Use `npm test` without the flag to run the release check against the real files. Production and CI always enforce release counts, reject `example.com` URLs, and require every enum tag to appear in a career. Seed mode still validates record shapes, duplicate IDs, links, and resource references. The temporary catalog has three careers (Robotics Engineer, Environmental Scientist, and Software Engineer) and six shared placeholder resources. The seed resources use `2000-01-01` as a sentinel date and have no verified educational links.
 
 Catalog and response text limits use Unicode code points after trimming: IDs 80 (without trimming), titles 160, summaries 300, descriptions 600 (also at most 60 words), skill labels and durations 80, provider names 120, recommendation reasons 220, and error messages 300. Resource URLs allow up to 2,048 code points. The shared response schemas check URL shape and ISO date format. Only server-side catalog validation parses URLs and checks verification dates against the current UTC date.
 
@@ -161,12 +161,12 @@ Input: `{ interests: string, tags: InterestTag[] }`.
 1. Normalize text (Unicode NFKC, lowercase, strip control characters and punctuation), then tokenize.
 2. Map whole words and recognized two-word phrases to existing tags via `keywords.ts`. For example, "video games" maps to `coding`, "machine learning" to `data-math`, and "astronauts" to `space`. Where there is no exact tag, use an adjacent area of study: "physics" maps to `data-math` for quantitative modeling, "chemistry" to `environment` for environmental chemistry, and "engineering" to `building` for designing and making things. Merge these matches with chip tags.
 3. Score each career: a matched chip tag contributes 2 points and a keyword-only tag contributes 1 point. Repeated keywords and a keyword that matches an already selected chip do not add points. Ties follow catalog order.
-4. Return the top 3, or all available careers when the local seed contains only two. If no score is positive, select the first career from each distinct field in catalog order, then fill any remaining slots from the other careers in catalog order.
+4. Return the top 3. If no score is positive, select the first career from each distinct field in catalog order, then fill any remaining slots from the other careers in catalog order.
 5. Reason template: "Matches your interest in {tagLabel1} and {tagLabel2}." / "Matches your interest in {tagLabel}." / default "A great starting point if you're exploring {field}."
 
 When at least one career matches, rank positive scores first. If fewer than three careers match, fill the remaining slots with zero-score careers in catalog order and give those cards the generic reason. Field diversity applies only when every score is zero.
 
-The engine scores the loaded server catalog in memory. Its two-career seed result does not change the release API response contract of exactly three recommendations.
+The engine scores the loaded server catalog in memory. The development seed and release catalogs both support the same strict three-recommendation response.
 
 ### 5.2 Roadmap (`lib/engine/roadmap.ts`)
 Input: `careerId`. Returns the career's curated steps in order, with resources hydrated from the catalog.
