@@ -175,21 +175,21 @@ Input: `careerId`. Returns the career's curated steps in order, with resources h
 
 ### 6.1 Common request pipeline (`lib/api/guard.ts`, `readJsonBody.ts`)
 
-Applied in this order to every route. Each failure returns `{ "error": { "code", "message" } }` with no internal detail.
+Applied in this order to every POST. Each POST failure returns `{ "error": { "code", "message" } }` with no internal detail.
 
 | Step | Check | Failure |
 |---|---|---|
-| 1 | Only `POST` is exported (Next returns 405 for other methods). | 405 |
+| 1 | Only `POST` is exported. Next returns 405 for unsupported methods and handles `OPTIONS` automatically without CORS headers. | 405 for unsupported methods |
 | 2 | **Same-origin:** if `Origin` is present it must equal the deployment origin (`APP_ORIGIN`, or the request host). Reject `Sec-Fetch-Site: cross-site`. No CORS headers are ever sent. | 403 `FORBIDDEN` |
-| 3 | **Rate limit** per client IP (first `x-forwarded-for` value on Vercel): sliding window, `RATE_LIMIT_PER_MIN` (default 30). Includes `Retry-After`. | 429 `RATE_LIMITED` |
-| 4 | `Content-Type` must be `application/json`. | 415 `UNSUPPORTED_MEDIA_TYPE` |
+| 3 | **Rate limit** per client IP (first `x-forwarded-for` value on Vercel, when it is a valid IP): sliding window, `RATE_LIMIT_PER_MIN` (default 30). Direct requests and requests without a trusted IP share a bucket. Includes `Retry-After`. | 429 `RATE_LIMITED` |
+| 4 | `Content-Type` must be `application/json`, optionally with a UTF-8 charset. | 415 `UNSUPPORTED_MEDIA_TYPE` |
 | 5 | **Byte-capped body read:** stream `request.body`, count bytes, abort once above **4,096 bytes**. `Content-Length` is used only for early rejection and is never trusted as proof of size. | 413 `PAYLOAD_TOO_LARGE` |
 | 6 | Decode UTF-8 (fatal on invalid sequences), then `JSON.parse`. | 400 `INVALID_JSON` |
 | 7 | **Strict Zod schema** (`.strict()`: unknown keys rejected; types, enums, lengths, and array sizes checked). | 400 `INVALID_INPUT` |
 | 8 | Handler logic. Unexpected exceptions are caught. | 500 `INTERNAL` |
 | 9 | Response object parsed with its response schema before sending (catches engine or AI merge bugs). | 500 `INTERNAL` |
 
-Responses set `Cache-Control: no-store` and `Content-Type: application/json`.
+Responses set `Cache-Control: no-store`. POST responses also set `Content-Type: application/json`.
 
 ### 6.2 `POST /api/recommend`
 

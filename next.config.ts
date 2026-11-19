@@ -28,6 +28,10 @@ const nextConfig: NextConfig = {
           // Production HSTS is managed by Vercel.
         ],
       },
+      {
+        source: "/api/:endpoint(recommend|roadmap)",
+        headers: [{ key: "Cache-Control", value: "no-store" }],
+      },
     ];
   },
 };
