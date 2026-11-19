@@ -56,7 +56,8 @@ stembridge-ai/
 │  ├─ LoadingState.tsx
 │  └─ ErrorMessage.tsx
 ├─ lib/
-│  ├─ schemas.ts                # Zod: catalog, API requests (strict), API responses, AI output
+│  ├─ schemas.ts                # Shared fields and strict API request/response schemas
+│  ├─ catalogSchemas.ts         # Server-only catalog and release validation
 │  ├─ types.ts                  # types inferred from Zod
 │  ├─ catalog.ts                # load + validate + index catalog (server-only)
 │  ├─ engine/
@@ -141,11 +142,13 @@ Resources hold no career references. Mapping lives only in `steps[].resourceIds`
 - Counts: 6–8 careers; 25–35 resources; 4–6 steps per career; 1–3 resources per step.
 - IDs are unique (careers, resources, step IDs within a career) and kebab-case.
 - Every `resourceIds` entry resolves. No orphan resources: each resource is used by ≥ 1 step.
-- URLs are valid `https://`, unique, with no tracking query parameters.
+- Resource URLs must be absolute HTTPS URLs without credentials, local hostnames, or private/local IP literals. UTM parameters are rejected in the query and in query-like fragments. Duplicate detection normalizes URLs and ignores fragments.
 - Every tag is in the enum. Every enum tag is used by ≥ 1 career and reachable from ≥ 1 chip or keyword.
 - `verifiedAt` is a valid ISO date and not in the future.
 
 The catalog is parsed with Zod once at module load (`lib/catalog.ts`). An invalid catalog throws during `next build`.
+
+Catalog and response text limits use Unicode code points after trimming: IDs 80 (without trimming), titles 160, summaries 300, descriptions 600 (also at most 60 words), skill labels and durations 80, provider names 120, recommendation reasons 220, and error messages 300. Resource URLs allow up to 2,048 code points. The shared response schemas check URL shape and ISO date format. Only server-side catalog validation parses URLs and checks verification dates against the current UTC date.
 
 ## 5. Deterministic engine
 
@@ -188,7 +191,7 @@ Request (strict):
 ```json
 { "interests": "I like robots and coding", "tags": ["robots"] }
 ```
-- `interests`: string, 0–300 chars after trim. `tags`: array of `InterestTag`, 0–8 items, unique. At least one of them must be non-empty.
+- Both fields are required. `interests` is a string of 0–300 Unicode code points after trimming. `tags` is an array of 0–8 distinct `InterestTag` values. Use an empty string for chip-only requests and an empty array for text-only requests. At least one field must be non-empty. Interests with unpaired surrogates or only invisible formatting/control characters are invalid.
 
 Response 200:
 ```json
@@ -213,7 +216,7 @@ Request (strict):
 ```json
 { "careerId": "robotics-engineer", "interests": "I like robots and coding", "tags": ["robots"] }
 ```
-- `careerId`: must be a catalog ID (enum); otherwise 400. `interests`/`tags` are optional and used only for AI personalization.
+- `careerId` is required. `createRoadmapRequestSchema(careerIds)` checks kebab-case format and membership in the supplied catalog ID list. Invalid or unknown IDs map to 400. `interests` and `tags` are optional and reserved for AI personalization.
 
 Response 200:
 ```json

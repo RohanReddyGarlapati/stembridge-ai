@@ -45,7 +45,7 @@ Because the MVP is deterministic, expected outputs are exact. Engine tests asser
 | U-ENG-8 | Equal scores | Tie broken by catalog order. |
 | U-ENG-9 | Any input (property test over 200 random strings) | Exactly 3 unique catalog careers; same output on repeat calls. |
 | U-ENG-10 | `roadmap("robotics-engineer")` | Steps in catalog order, `order` 1..n, resources hydrated with catalog URLs. |
-| U-ENG-11 | Unknown career ID | Throws (routes prevent this through schema enums). |
+| U-ENG-11 | Unknown career ID | Throws (the roadmap request schema checks catalog membership before the route calls the engine). |
 
 ### 2.3 API helpers (`tests/unit/api.test.ts`)
 | ID | Scenario | Expected |
@@ -67,7 +67,7 @@ Because the MVP is deterministic, expected outputs are exact. Engine tests asser
 | U-RT-1 | `/api/recommend` valid body | 200; body passes response schema; exactly 3 careers; `personalization: "none"`; `Cache-Control: no-store`. |
 | U-RT-2 | `interests: ""` and `tags: []` | 400 `INVALID_INPUT`. |
 | U-RT-3 | `interests` 301 chars | 400. |
-| U-RT-4 | Unknown field (`{"interests":"x","admin":true}`) | 400 (strict schema). |
+| U-RT-4 | Unknown field (`{"interests":"x","tags":[],"admin":true}`) | 400 (strict schema). |
 | U-RT-5 | `tags: ["not-a-tag"]`, duplicate tags, or 9 tags | 400. |
 | U-RT-6 | `interests: 123` / body is an array | 400. |
 | U-RT-7 | `/api/roadmap` with unknown `careerId` | 400. |
@@ -147,7 +147,7 @@ E2E-5 to E2E-8 use request interception and are run locally and in CI. E2E-1 to 
 | M-SEC-1 | `curl -X POST <prod>/api/recommend -H "Content-Type: application/json" -H "Origin: https://evil.example" -d '{"interests":"x"}'` | 403 |
 | M-SEC-2 | POST a 5 KB body, chunked (no `Content-Length`). | 413 |
 | M-SEC-3 | POST with `Content-Type: text/plain`. | 415 |
-| M-SEC-4 | POST `{"interests":"x","extra":1}`. | 400 |
+| M-SEC-4 | POST `{"interests":"x","tags":[],"extra":1}`. | 400 |
 | M-SEC-5 | GET `/api/recommend`. | 405 |
 | M-SEC-6 | Loop 100 requests quickly. | 429 with `Retry-After` (from the app limiter or the firewall). |
 | M-SEC-7 | Input `<script>alert(1)</script> robots`. | Rendered as plain text; no execution. |
