@@ -119,7 +119,9 @@ type RoadmapStep = {
 
 `InterestTag` is a closed enum (about 10–12 values) shared by careers, chips, and the keyword map, for example `robots, coding, space, biology, environment, building, health, data-math, electronics, security, design`.
 
-**Initial career set** (first 6 required, last 2 if time allows): software developer, data scientist, robotics engineer, environmental scientist, biomedical engineer, cybersecurity analyst; then aerospace engineer, mechanical engineer. They cover all four fields.
+**Selected release careers:** AI Engineer (`ai-engineer`), Data Scientist (`data-scientist`), Cybersecurity Analyst (`cybersecurity-analyst`), Robotics Engineer (`robotics-engineer`), Software Engineer (`software-engineer`), and Environmental Scientist (`environmental-scientist`). They cover technology, engineering, and science, the three fields available for the diverse default set.
+
+The [candidate catalog](../data/candidate/careers.json) is separate from the application catalog while the [human verification checklist](RESOURCE_VERIFICATION_CHECKLIST.md) is pending.
 
 ### 4.2 Resources (`data/resources.json`): 25–35 entries, reusable
 
@@ -157,12 +159,14 @@ Catalog and response text limits use Unicode code points after trimming: IDs 80 
 ### 5.1 Recommendation (`lib/engine/recommend.ts`)
 Input: `{ interests: string, tags: InterestTag[] }`.
 1. Normalize text (Unicode NFKC, lowercase, strip control characters and punctuation), then tokenize.
-2. Map tokens to tags via `keywords.ts` (e.g. "robot", "robotics", "arduino" → `robots`; "planets", "nasa", "rocket" → `space`). Merge with chip tags.
-3. Score each career: chip-tag match = 2, keyword-tag match = 1. Ties break by catalog order.
-4. Return the top 3. If the top score is 0, return a fixed diverse default set (three different fields).
+2. Map whole words and recognized two-word phrases to existing tags via `keywords.ts`. For example, "video games" maps to `coding`, "machine learning" to `data-math`, and "astronauts" to `space`. Where there is no exact tag, use an adjacent area of study: "physics" maps to `data-math` for quantitative modeling, "chemistry" to `environment` for environmental chemistry, and "engineering" to `building` for designing and making things. Merge these matches with chip tags.
+3. Score each career: a matched chip tag contributes 2 points and a keyword-only tag contributes 1 point. Repeated keywords and a keyword that matches an already selected chip do not add points. Ties follow catalog order.
+4. Return the top 3, or all available careers when the local seed contains only two. If no score is positive, select the first career from each distinct field in catalog order, then fill any remaining slots from the other careers in catalog order.
 5. Reason template: "Matches your interest in {tagLabel1} and {tagLabel2}." / "Matches your interest in {tagLabel}." / default "A great starting point if you're exploring {field}."
 
-Pure function, no I/O, deterministic.
+When at least one career matches, rank positive scores first. If fewer than three careers match, fill the remaining slots with zero-score careers in catalog order and give those cards the generic reason. Field diversity applies only when every score is zero.
+
+The engine scores the loaded server catalog in memory. Its two-career seed result does not change the release API response contract of exactly three recommendations.
 
 ### 5.2 Roadmap (`lib/engine/roadmap.ts`)
 Input: `careerId`. Returns the career's curated steps in order, with resources hydrated from the catalog.

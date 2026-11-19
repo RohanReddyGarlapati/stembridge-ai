@@ -27,7 +27,7 @@ Because the MVP is deterministic, expected outputs are exact. Engine tests asser
 | U-CAT-4 | No orphan resources: each resource is referenced by ≥ 1 step. |
 | U-CAT-5 | URLs are valid `https://`, unique, and have no `utm_*` parameters. |
 | U-CAT-6 | Each career has 4–6 steps; each step has 1–3 resources; descriptions ≤ 60 words. |
-| U-CAT-7 | All tags are in the enum. Release validation requires every enum tag to appear in a career. Check chip or keyword reachability once T2.1 and T4.4 provide those inputs. |
+| U-CAT-7 | All tags are in the enum. Release validation requires every enum tag to appear in a career. The engine tests verify that each tag is reachable through a keyword. |
 | U-CAT-8 | `verifiedAt` is a valid ISO date, not in the future. |
 | U-CAT-9 | Catalog-load failure: a fixture with a dangling `resourceId` makes `loadCatalog()` throw. |
 | U-CAT-R1 (release) | 6–8 careers, 25–35 resources, no `example.com` URLs. The real-data release check is skipped only when `CATALOG_SEED=1` in local development or testing. CI and production always enforce it. Release rejection fixtures run in both modes. |
@@ -38,7 +38,7 @@ Because the MVP is deterministic, expected outputs are exact. Engine tests asser
 | U-ENG-1 | `normalize("  ROBOTS!!! ")` | `"robots"` |
 | U-ENG-2 | Text with control characters / full-width letters | Normalized via NFKC; control characters removed. |
 | U-ENG-3 | Tokens "arduino", "robotics" | Map to tag `robots`. |
-| U-ENG-4 | "I love building robots and coding" | Top 3 includes `robotics-engineer` and `software-developer`; reason for robotics names robots. |
+| U-ENG-4 | "I love building robots and coding" | Top 3 includes `robotics-engineer` and `software-engineer`; reason for robotics names robots. |
 | U-ENG-5 | Tags `["space"]`, empty text | Space-tagged career ranked first. |
 | U-ENG-6 | Chip tag outranks a keyword-only match (weight 2 vs 1). | As specified. |
 | U-ENG-7 | "asdfgh" | Fixed diverse default set (three different fields), generic reasons. |
@@ -46,6 +46,8 @@ Because the MVP is deterministic, expected outputs are exact. Engine tests asser
 | U-ENG-9 | Any input (property test over 200 random strings) | Exactly 3 unique catalog careers; same output on repeat calls. |
 | U-ENG-10 | `roadmap("robotics-engineer")` | Steps in catalog order, `order` 1..n, resources hydrated with catalog URLs. |
 | U-ENG-11 | Unknown career ID | Throws (the roadmap request schema checks catalog membership before the route calls the engine). |
+
+Engine coverage also checks common student expressions and their recommendation reasons, catalog-order filling after partial matches, detached recommendation and roadmap outputs, and the strict three-item response schema's rejection of the two-career seed result.
 
 ### 2.3 API helpers (`tests/unit/api.test.ts`)
 | ID | Scenario | Expected |
