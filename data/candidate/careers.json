@@ -1,0 +1,593 @@
+[
+  {
+    "id": "ai-engineer",
+    "title": "AI Engineer",
+    "summary": "Designs, trains and deploys machine learning systems that learn from data, and makes sure they are safe and fair.",
+    "field": "technology",
+    "tags": [
+      "coding",
+      "data-math",
+      "robots"
+    ],
+    "keySkills": [
+      "Python programming",
+      "Machine learning",
+      "Mathematics for AI",
+      "Responsible AI"
+    ],
+    "steps": [
+      {
+        "id": "ai-python",
+        "title": "Learn to program in Python",
+        "description": "Python is the main language of AI. Practise variables, loops, functions and debugging by solving many small problems.",
+        "skills": [
+          "Python",
+          "Problem solving"
+        ],
+        "duration": "6–10 weeks",
+        "resourceIds": [
+          "cs50-python",
+          "py4e"
+        ]
+      },
+      {
+        "id": "ai-concepts",
+        "title": "Understand what AI can and cannot do",
+        "description": "Learn the core ideas behind AI, where it works well, where it fails, and how it affects people, before writing AI code.",
+        "skills": [
+          "AI concepts",
+          "Critical thinking"
+        ],
+        "duration": "2–4 weeks",
+        "resourceIds": [
+          "elements-of-ai"
+        ]
+      },
+      {
+        "id": "ai-math",
+        "title": "Build the math foundations",
+        "description": "Machine learning relies on probability, statistics and linear algebra. Use visual tools first, then work through matrix and vector problems.",
+        "skills": [
+          "Probability",
+          "Statistics",
+          "Linear algebra"
+        ],
+        "duration": "6–8 weeks",
+        "resourceIds": [
+          "seeing-theory",
+          "mit-18-06-linear-algebra"
+        ]
+      },
+      {
+        "id": "ai-ml-basics",
+        "title": "Train your first machine learning models",
+        "description": "Learn how models learn from data, how to measure their accuracy, and how to avoid overfitting, using guided Python projects.",
+        "skills": [
+          "Machine learning",
+          "Model evaluation"
+        ],
+        "duration": "4–6 weeks",
+        "resourceIds": [
+          "google-ml-crash-course",
+          "cs50-ai"
+        ]
+      },
+      {
+        "id": "ai-deep-learning",
+        "title": "Explore deep learning and language models",
+        "description": "Train neural networks for images and text, then learn how modern language models are built, fine-tuned and shared.",
+        "skills": [
+          "Deep learning",
+          "Neural networks",
+          "Language models"
+        ],
+        "duration": "6–10 weeks",
+        "resourceIds": [
+          "fastai-practical-dl",
+          "hf-llm-course"
+        ]
+      },
+      {
+        "id": "ai-responsible",
+        "title": "Design AI responsibly",
+        "description": "Study fairness, transparency and accountability, and how organizations assess and reduce the risks of AI systems.",
+        "skills": [
+          "AI ethics",
+          "Risk management"
+        ],
+        "duration": "2–3 weeks",
+        "resourceIds": [
+          "ethics-of-ai",
+          "nist-ai-rmf"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "data-scientist",
+    "title": "Data Scientist",
+    "summary": "Collects, cleans and analyzes data to answer questions and make predictions in fields from health to the environment.",
+    "field": "technology",
+    "tags": [
+      "data-math",
+      "coding",
+      "health",
+      "biology"
+    ],
+    "keySkills": [
+      "Statistics",
+      "Python and pandas",
+      "Data visualization",
+      "Machine learning"
+    ],
+    "steps": [
+      {
+        "id": "ds-python",
+        "title": "Learn Python for working with data",
+        "description": "Learn Python basics, including lists, dictionaries, files and functions, so you can load and process data on your own.",
+        "skills": [
+          "Python",
+          "Problem solving"
+        ],
+        "duration": "6–8 weeks",
+        "resourceIds": [
+          "py4e",
+          "python-tutorial"
+        ]
+      },
+      {
+        "id": "ds-statistics",
+        "title": "Learn statistics and probability",
+        "description": "Understand distributions, sampling, inference and regression, the tools for deciding what data really shows.",
+        "skills": [
+          "Probability",
+          "Statistics",
+          "Regression"
+        ],
+        "duration": "6–8 weeks",
+        "resourceIds": [
+          "seeing-theory",
+          "openintro-statistics"
+        ]
+      },
+      {
+        "id": "ds-wrangling",
+        "title": "Clean, analyze and visualize data",
+        "description": "Use pandas to load real survey data, fix messy values, combine tables and make clear charts.",
+        "skills": [
+          "pandas",
+          "Data cleaning",
+          "Data visualization"
+        ],
+        "duration": "3–4 weeks",
+        "resourceIds": [
+          "data-carpentry-python-ecology"
+        ]
+      },
+      {
+        "id": "ds-models",
+        "title": "Build predictive models",
+        "description": "Train and evaluate models with scikit-learn, compare them with cross-validation, and avoid data leakage.",
+        "skills": [
+          "Machine learning",
+          "Model evaluation"
+        ],
+        "duration": "4–6 weeks",
+        "resourceIds": [
+          "scikit-learn-getting-started",
+          "google-ml-crash-course"
+        ]
+      },
+      {
+        "id": "ds-share",
+        "title": "Track and share your work",
+        "description": "Use Git to save versions of your analysis, collaborate with others and publish projects for a portfolio.",
+        "skills": [
+          "Version control",
+          "Collaboration"
+        ],
+        "duration": "1–2 weeks",
+        "resourceIds": [
+          "pro-git"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "cybersecurity-analyst",
+    "title": "Cybersecurity Analyst",
+    "summary": "Protects people and organizations by finding weaknesses, monitoring for attacks and responding to security incidents.",
+    "field": "technology",
+    "tags": [
+      "security",
+      "coding",
+      "electronics"
+    ],
+    "keySkills": [
+      "Security fundamentals",
+      "Command line",
+      "Web security",
+      "Risk management"
+    ],
+    "steps": [
+      {
+        "id": "cy-foundations",
+        "title": "Learn security fundamentals",
+        "description": "Learn how accounts, data, systems and software are attacked and defended, and how to weigh risks and trade-offs.",
+        "skills": [
+          "Security concepts",
+          "Threat awareness"
+        ],
+        "duration": "4–6 weeks",
+        "resourceIds": [
+          "cs50-cybersecurity"
+        ]
+      },
+      {
+        "id": "cy-command-line",
+        "title": "Get comfortable with the command line",
+        "description": "Analysts work in terminals every day. Practise navigating files, searching text and using shell tools through guided levels.",
+        "skills": [
+          "Linux command line",
+          "Shell tools"
+        ],
+        "duration": "3–4 weeks",
+        "resourceIds": [
+          "overthewire-bandit",
+          "missing-semester"
+        ]
+      },
+      {
+        "id": "cy-programming",
+        "title": "Learn programming and how computers work",
+        "description": "Understanding code and how the web works helps you spot vulnerabilities and automate security tasks.",
+        "skills": [
+          "Programming",
+          "Computer systems"
+        ],
+        "duration": "8–12 weeks",
+        "resourceIds": [
+          "cs50x",
+          "cs50-python"
+        ]
+      },
+      {
+        "id": "cy-practice",
+        "title": "Practise with capture-the-flag challenges",
+        "description": "Solve beginner challenges in cryptography, forensics and web security, then follow guided learning paths.",
+        "skills": [
+          "Cryptography",
+          "Forensics",
+          "Problem solving"
+        ],
+        "duration": "Ongoing",
+        "resourceIds": [
+          "cylab-security-academy"
+        ]
+      },
+      {
+        "id": "cy-web-risks",
+        "title": "Understand web application risks",
+        "description": "Learn how websites are built, then study the most common web vulnerabilities and how developers prevent them.",
+        "skills": [
+          "Web security",
+          "HTML and JavaScript"
+        ],
+        "duration": "3–4 weeks",
+        "resourceIds": [
+          "owasp-top-10",
+          "mdn-learn-web"
+        ]
+      },
+      {
+        "id": "cy-risk",
+        "title": "Learn how organizations manage cyber risk",
+        "description": "Explore how organizations identify, protect, detect, respond to and recover from security incidents.",
+        "skills": [
+          "Risk management",
+          "Security frameworks"
+        ],
+        "duration": "1–2 weeks",
+        "resourceIds": [
+          "nist-csf"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "robotics-engineer",
+    "title": "Robotics Engineer",
+    "summary": "Designs, builds and programs robots that sense their surroundings and move, from factory arms to planetary rovers.",
+    "field": "engineering",
+    "tags": [
+      "robots",
+      "electronics",
+      "building",
+      "coding",
+      "space"
+    ],
+    "keySkills": [
+      "Programming",
+      "Electronics",
+      "Mechanics and kinematics",
+      "Control systems"
+    ],
+    "steps": [
+      {
+        "id": "rb-python",
+        "title": "Learn to program in Python",
+        "description": "Robots run on software. Learn Python basics, testing and debugging, which you will use to control and simulate robots.",
+        "skills": [
+          "Python",
+          "Debugging"
+        ],
+        "duration": "6–10 weeks",
+        "resourceIds": [
+          "cs50-python"
+        ]
+      },
+      {
+        "id": "rb-electronics",
+        "title": "Understand circuits and electronics",
+        "description": "Learn voltage, current and resistance, then semiconductors and digital logic, the building blocks of sensors and motor controllers.",
+        "skills": [
+          "Circuits",
+          "Electronics",
+          "Digital logic"
+        ],
+        "duration": "4–6 weeks",
+        "resourceIds": [
+          "all-about-circuits-textbook"
+        ]
+      },
+      {
+        "id": "rb-math",
+        "title": "Learn the math of motion",
+        "description": "Vectors and matrices describe where a robot is and how it moves. Build these linear algebra skills step by step.",
+        "skills": [
+          "Linear algebra",
+          "Vectors"
+        ],
+        "duration": "6–8 weeks",
+        "resourceIds": [
+          "mit-18-06-linear-algebra"
+        ]
+      },
+      {
+        "id": "rb-mechanics",
+        "title": "Study robot mechanisms and control",
+        "description": "Learn how robot arms and wheels are designed, how kinematics and dynamics work, and how controllers keep motion accurate.",
+        "skills": [
+          "Kinematics",
+          "Dynamics",
+          "Control"
+        ],
+        "duration": "8–12 weeks",
+        "resourceIds": [
+          "mit-2-12-intro-robotics",
+          "modern-robotics"
+        ]
+      },
+      {
+        "id": "rb-motion",
+        "title": "Plan robot motion",
+        "description": "Learn how robots plan collision-free paths and move wheeled bases and manipulators, using free video lectures and code.",
+        "skills": [
+          "Motion planning",
+          "Mobile robots"
+        ],
+        "duration": "4–6 weeks",
+        "resourceIds": [
+          "modern-robotics"
+        ]
+      },
+      {
+        "id": "rb-intelligence",
+        "title": "Add intelligence with AI",
+        "description": "Use search, optimization and machine learning so robots can make decisions and recognize what they sense.",
+        "skills": [
+          "Search algorithms",
+          "Machine learning"
+        ],
+        "duration": "6–8 weeks",
+        "resourceIds": [
+          "cs50-ai"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "software-engineer",
+    "title": "Software Engineer",
+    "summary": "Designs, builds, tests and maintains the apps, websites and systems that people use every day.",
+    "field": "technology",
+    "tags": [
+      "coding",
+      "design",
+      "building"
+    ],
+    "keySkills": [
+      "Programming",
+      "Web development",
+      "Version control",
+      "Testing"
+    ],
+    "steps": [
+      {
+        "id": "se-foundations",
+        "title": "Learn computer science fundamentals",
+        "description": "Learn how programs, algorithms and data structures work while writing code in several languages.",
+        "skills": [
+          "Algorithms",
+          "Data structures",
+          "Programming"
+        ],
+        "duration": "10–12 weeks",
+        "resourceIds": [
+          "cs50x"
+        ]
+      },
+      {
+        "id": "se-web",
+        "title": "Build websites with HTML, CSS and JavaScript",
+        "description": "Create real web pages and apps, from layout and styling to interactivity and accessibility, through guided projects.",
+        "skills": [
+          "HTML and CSS",
+          "JavaScript",
+          "Accessibility"
+        ],
+        "duration": "8–12 weeks",
+        "resourceIds": [
+          "mdn-learn-web",
+          "odin-project"
+        ]
+      },
+      {
+        "id": "se-tools",
+        "title": "Master your developer tools",
+        "description": "Use the command line, editors, debuggers and Git confidently so you can work efficiently and collaborate.",
+        "skills": [
+          "Git",
+          "Command line",
+          "Debugging"
+        ],
+        "duration": "3–4 weeks",
+        "resourceIds": [
+          "missing-semester",
+          "pro-git"
+        ]
+      },
+      {
+        "id": "se-testing",
+        "title": "Write tested, reliable code",
+        "description": "Write unit tests, handle errors and organize code into modules so your programs keep working as they grow.",
+        "skills": [
+          "Unit testing",
+          "Error handling"
+        ],
+        "duration": "3–4 weeks",
+        "resourceIds": [
+          "cs50-python",
+          "python-tutorial"
+        ]
+      },
+      {
+        "id": "se-security",
+        "title": "Build secure software",
+        "description": "Learn the most common security mistakes in web applications and how to design code that avoids them.",
+        "skills": [
+          "Secure coding",
+          "Web security"
+        ],
+        "duration": "2–3 weeks",
+        "resourceIds": [
+          "owasp-top-10"
+        ]
+      },
+      {
+        "id": "se-teams",
+        "title": "Learn how teams build software at scale",
+        "description": "Explore code review, testing culture, documentation and dependency management used by large engineering teams.",
+        "skills": [
+          "Code review",
+          "Teamwork"
+        ],
+        "duration": "3–4 weeks",
+        "resourceIds": [
+          "swe-at-google"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "environmental-scientist",
+    "title": "Environmental Scientist",
+    "summary": "Studies air, water, land and living things to understand environmental change and protect ecosystems and human health.",
+    "field": "science",
+    "tags": [
+      "environment",
+      "biology",
+      "space",
+      "data-math",
+      "health"
+    ],
+    "keySkills": [
+      "Ecology",
+      "Field observation",
+      "Data analysis",
+      "Remote sensing"
+    ],
+    "steps": [
+      {
+        "id": "es-ecology",
+        "title": "Learn how ecosystems work",
+        "description": "Study how living things interact with each other and their environment, and how human activity changes ecosystems.",
+        "skills": [
+          "Ecology",
+          "Scientific vocabulary"
+        ],
+        "duration": "1–2 weeks",
+        "resourceIds": [
+          "openlearn-ecology"
+        ]
+      },
+      {
+        "id": "es-field-data",
+        "title": "Observe nature and collect field data",
+        "description": "Record plants, animals and environmental measurements using shared scientific protocols, and contribute to real research datasets.",
+        "skills": [
+          "Field observation",
+          "Data collection"
+        ],
+        "duration": "Ongoing",
+        "resourceIds": [
+          "inaturalist",
+          "globe-program"
+        ]
+      },
+      {
+        "id": "es-statistics",
+        "title": "Learn statistics for science",
+        "description": "Learn to summarize measurements, compare groups and test whether a pattern in your data is meaningful.",
+        "skills": [
+          "Statistics",
+          "Probability"
+        ],
+        "duration": "6–8 weeks",
+        "resourceIds": [
+          "seeing-theory",
+          "openintro-statistics"
+        ]
+      },
+      {
+        "id": "es-data",
+        "title": "Analyze environmental data with Python",
+        "description": "Use Python and pandas to clean, combine and plot real ecological survey data.",
+        "skills": [
+          "Python",
+          "Data analysis",
+          "Data visualization"
+        ],
+        "duration": "4–6 weeks",
+        "resourceIds": [
+          "data-carpentry-python-ecology",
+          "py4e"
+        ]
+      },
+      {
+        "id": "es-remote-sensing",
+        "title": "See Earth from space with satellite data",
+        "description": "Learn how satellites measure land, oceans and air, and explore images that show environmental change over time.",
+        "skills": [
+          "Remote sensing",
+          "Satellite imagery"
+        ],
+        "duration": "2–3 weeks",
+        "resourceIds": [
+          "nasa-arset-remote-sensing",
+          "nasa-earth-observatory"
+        ]
+      }
+    ]
+  }
+]
