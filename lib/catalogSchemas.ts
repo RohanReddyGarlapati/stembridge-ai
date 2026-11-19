@@ -86,5 +86,5 @@ export const releaseCareersFileSchema = careersFileSchema.min(6);
 export const releaseResourcesFileSchema = resourcesFileSchema.min(25)
   .refine(
     (resources) => resources.every(({ url }) => !/(^|\.)example\.com\.?$/i.test(URL.parse(url)?.hostname ?? "")),
-    "Release resources must not use example.com URLs",
+    { message: "Release resources must not use example.com URLs", params: { constraint: "no-placeholder-urls" } },
   );

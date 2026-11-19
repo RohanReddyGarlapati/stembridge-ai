@@ -1,0 +1,62 @@
+[
+  {
+    "id": "seed-programming",
+    "title": "Placeholder: Programming practice",
+    "provider": "Development seed only",
+    "url": "https://example.com/stembridge-seed/programming",
+    "type": "interactive",
+    "cost": "free",
+    "level": "beginner",
+    "verifiedAt": "2000-01-01"
+  },
+  {
+    "id": "seed-circuits",
+    "title": "Placeholder: Circuit basics",
+    "provider": "Development seed only",
+    "url": "https://example.com/stembridge-seed/circuits",
+    "type": "article",
+    "cost": "free",
+    "level": "beginner",
+    "verifiedAt": "2000-01-01"
+  },
+  {
+    "id": "seed-sensors",
+    "title": "Placeholder: Sensor and measurement practice",
+    "provider": "Development seed only",
+    "url": "https://example.com/stembridge-seed/sensors",
+    "type": "video",
+    "cost": "free",
+    "level": "beginner",
+    "verifiedAt": "2000-01-01"
+  },
+  {
+    "id": "seed-prototyping",
+    "title": "Placeholder: Prototype planning",
+    "provider": "Development seed only",
+    "url": "https://example.com/stembridge-seed/prototyping",
+    "type": "article",
+    "cost": "free",
+    "level": "beginner",
+    "verifiedAt": "2000-01-01"
+  },
+  {
+    "id": "seed-ecosystems",
+    "title": "Placeholder: Ecosystem observation",
+    "provider": "Development seed only",
+    "url": "https://example.com/stembridge-seed/ecosystems",
+    "type": "article",
+    "cost": "free",
+    "level": "beginner",
+    "verifiedAt": "2000-01-01"
+  },
+  {
+    "id": "seed-environmental-data",
+    "title": "Placeholder: Environmental data practice",
+    "provider": "Development seed only",
+    "url": "https://example.com/stembridge-seed/environmental-data",
+    "type": "interactive",
+    "cost": "free",
+    "level": "beginner",
+    "verifiedAt": "2000-01-01"
+  }
+]

@@ -12,6 +12,7 @@
     "lint": "eslint .",
     "typecheck": "next typegen && tsc --noEmit",
     "test": "vitest run --passWithNoTests",
+    "test:seed": "node scripts/test-seed.mjs",
     "test:e2e": "playwright test --pass-with-no-tests",
     "check-links": "tsx scripts/check-links.ts",
     "check-bundle": "tsx scripts/check-bundle.ts"

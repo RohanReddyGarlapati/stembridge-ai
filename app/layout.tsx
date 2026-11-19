@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
 import "./globals.css";
+// Validate the catalog during next build before any page can ship.
+import "../lib/catalog";
 
 export const metadata: Metadata = {
   title: "STEMBridge AI",

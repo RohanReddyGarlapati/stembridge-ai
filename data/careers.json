@@ -1,0 +1,141 @@
+[
+  {
+    "id": "robotics-engineer",
+    "title": "Robotics Engineer (development seed)",
+    "summary": "Designs, builds, and tests systems that sense and move.",
+    "field": "engineering",
+    "tags": [
+      "robots",
+      "coding",
+      "electronics",
+      "building",
+      "design"
+    ],
+    "keySkills": [
+      "Programming",
+      "Electronics",
+      "Prototyping"
+    ],
+    "steps": [
+      {
+        "id": "robotics-programming",
+        "title": "Practice programming",
+        "description": "Write a small program that uses conditions and loops.",
+        "skills": [
+          "Programming"
+        ],
+        "duration": "2 weeks",
+        "resourceIds": [
+          "seed-programming"
+        ]
+      },
+      {
+        "id": "robotics-circuits",
+        "title": "Explore circuits",
+        "description": "Identify the parts of a simple circuit and explain how they work together.",
+        "skills": [
+          "Electronics"
+        ],
+        "duration": "2 weeks",
+        "resourceIds": [
+          "seed-circuits"
+        ]
+      },
+      {
+        "id": "robotics-sensing",
+        "title": "Work with sensors",
+        "description": "Sketch how a sensor can guide a robot through a simple task.",
+        "skills": [
+          "Electronics",
+          "Systems thinking"
+        ],
+        "duration": "2 weeks",
+        "resourceIds": [
+          "seed-sensors"
+        ]
+      },
+      {
+        "id": "robotics-prototype",
+        "title": "Plan and test a prototype",
+        "description": "Sketch a robot and write a plan to test its behavior.",
+        "skills": [
+          "Prototyping",
+          "Testing"
+        ],
+        "duration": "3 weeks",
+        "resourceIds": [
+          "seed-prototyping"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "environmental-scientist",
+    "title": "Environmental Scientist (development seed)",
+    "summary": "Studies the environment and uses evidence to understand changes.",
+    "field": "science",
+    "tags": [
+      "environment",
+      "biology",
+      "health",
+      "data-math",
+      "space"
+    ],
+    "keySkills": [
+      "Observation",
+      "Data analysis",
+      "Scientific communication"
+    ],
+    "steps": [
+      {
+        "id": "environment-observation",
+        "title": "Describe a local ecosystem",
+        "description": "List the living and nonliving things you observe in a familiar place.",
+        "skills": [
+          "Observation"
+        ],
+        "duration": "1 week",
+        "resourceIds": [
+          "seed-ecosystems"
+        ]
+      },
+      {
+        "id": "environment-measurement",
+        "title": "Plan a measurement",
+        "description": "Choose a variable to measure and write down how to collect it consistently.",
+        "skills": [
+          "Measurement"
+        ],
+        "duration": "2 weeks",
+        "resourceIds": [
+          "seed-sensors"
+        ]
+      },
+      {
+        "id": "environment-data",
+        "title": "Summarize observations",
+        "description": "Organize sample observations and identify one pattern.",
+        "skills": [
+          "Data analysis"
+        ],
+        "duration": "2 weeks",
+        "resourceIds": [
+          "seed-environmental-data",
+          "seed-programming"
+        ]
+      },
+      {
+        "id": "environment-communication",
+        "title": "Explain a finding",
+        "description": "Write a short explanation that connects a claim to your observations.",
+        "skills": [
+          "Scientific communication"
+        ],
+        "duration": "1 week",
+        "resourceIds": [
+          "seed-environmental-data"
+        ]
+      }
+    ]
+  }
+]

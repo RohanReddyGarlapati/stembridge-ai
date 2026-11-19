@@ -27,10 +27,10 @@ Because the MVP is deterministic, expected outputs are exact. Engine tests asser
 | U-CAT-4 | No orphan resources: each resource is referenced by ≥ 1 step. |
 | U-CAT-5 | URLs are valid `https://`, unique, and have no `utm_*` parameters. |
 | U-CAT-6 | Each career has 4–6 steps; each step has 1–3 resources; descriptions ≤ 60 words. |
-| U-CAT-7 | All tags are in the enum; every enum tag is used by a career and reachable by a chip or keyword. |
+| U-CAT-7 | All tags are in the enum. Release validation requires every enum tag to appear in a career. Check chip or keyword reachability once T2.1 and T4.4 provide those inputs. |
 | U-CAT-8 | `verifiedAt` is a valid ISO date, not in the future. |
 | U-CAT-9 | Catalog-load failure: a fixture with a dangling `resourceId` makes `loadCatalog()` throw. |
-| U-CAT-R1 (release) | 6–8 careers, 25–35 resources, no `example.com` URLs. Skipped only when `CATALOG_SEED=1`; **never skipped in CI on `main` or at release**. |
+| U-CAT-R1 (release) | 6–8 careers, 25–35 resources, no `example.com` URLs. The real-data release check is skipped only when `CATALOG_SEED=1` in local development or testing. CI and production always enforce it. Release rejection fixtures run in both modes. |
 
 ### 2.2 Deterministic engine (`tests/unit/engine.test.ts`, fixture catalog)
 | ID | Input | Expected |
