@@ -1,9 +1,19 @@
 import { EventEmitter } from "node:events";
 import { afterEach, describe, expect, it, vi } from "vitest";
 import { checkLinks, httpsTransport, type LinkTransport } from "../../scripts/link-checker";
+import { validateLinkReviews } from "../../scripts/link-reviews";
 
-const { request } = vi.hoisted(() => ({ request: vi.fn() }));
+const { request, resolve4, resolve6 } = vi.hoisted(() => ({
+  request: vi.fn(), resolve4: vi.fn(), resolve6: vi.fn(),
+}));
 vi.mock("node:https", () => ({ request }));
+vi.mock("node:dns/promises", () => ({
+  Resolver: class {
+    resolve4 = resolve4;
+    resolve6 = resolve6;
+    cancel = vi.fn();
+  },
+}));
 
 const publicAddress = "93.184.216.34";
 const start = "https://learn.example.org/start";
@@ -76,6 +86,37 @@ describe("link checker", () => {
     expect(transport.get).toHaveBeenCalledTimes(1);
   });
 
+  it.each([
+    [resolve4, resolve6, publicAddress],
+    [resolve6, resolve4, "2606:4700::1111"],
+  ])("uses a public address when the other DNS family fails (%#)", async (available, unavailable, address) => {
+    const transport = { ...mockTransport(), resolve: httpsTransport.resolve };
+    available.mockResolvedValue([address]);
+    unavailable.mockRejectedValue(Object.assign(new Error("DNS failure"), { code: "ESERVFAIL" }));
+    expect(await checkLinks([start], transport)).toEqual([expect.objectContaining({ status: "successful" })]);
+    expect(transport.get).toHaveBeenCalledWith(new URL(start), address, expect.any(AbortSignal));
+  });
+
+  it.each(["fd00::1", "10.0.0.1"])("blocks a non-public DNS answer (%s)", async (address) => {
+    const transport = { ...mockTransport(), resolve: httpsTransport.resolve };
+    resolve4.mockResolvedValue(address.includes(":") ? [publicAddress] : [address]);
+    if (address.includes(":")) resolve6.mockResolvedValue([address]);
+    else resolve6.mockRejectedValue(Object.assign(new Error("DNS failure"), { code: "ESERVFAIL" }));
+    expect(await checkLinks([start], transport)).toEqual([expect.objectContaining({ status: "failed" })]);
+    expect(transport.get).not.toHaveBeenCalled();
+  });
+
+  it("stays inconclusive when a DNS error leaves no addresses", async () => {
+    vi.useFakeTimers();
+    const transport = { ...mockTransport(), resolve: httpsTransport.resolve };
+    resolve4.mockRejectedValue(Object.assign(new Error("No A record"), { code: "ENODATA" }));
+    resolve6.mockRejectedValue(Object.assign(new Error("Timeout"), { code: "ETIMEOUT" }));
+    const pending = checkLinks([start], transport);
+    await vi.runAllTimersAsync();
+    expect(await pending).toEqual([expect.objectContaining({ status: "inconclusive", reviewReason: undefined })]);
+    expect(transport.get).not.toHaveBeenCalled();
+  });
+
   it("bounds redirect loops and long chains", async () => {
     const transport = mockTransport();
     transport.get.mockResolvedValueOnce({ status: 302, location: "/start#loop" });
@@ -89,7 +130,8 @@ describe("link checker", () => {
     expect(transport.get).toHaveBeenCalledTimes(6);
   });
 
-  it.each([[404, "failed"], [410, "failed"], [401, "inconclusive"], [403, "inconclusive"], [429, "inconclusive"]])(
+  it.each([[404, "failed"], [410, "failed"], [401, "inconclusive"], [403, "inconclusive"],
+    [405, "inconclusive"], [406, "inconclusive"], [429, "inconclusive"]])(
     "reports HTTP %s as %s without an immediate retry", async (status, expected) => {
       const transport = mockTransport();
       transport.get.mockResolvedValue({ status });
@@ -164,10 +206,68 @@ describe("link checker", () => {
     await expect(httpsTransport.get(new URL(start), publicAddress, signal)).resolves.toMatchObject({ status: 200 });
     expect(request).toHaveBeenCalledWith(expect.objectContaining({
       hostname: publicAddress, method: "GET", path: "/start", agent: false,
-      headers: expect.objectContaining({ Host: "learn.example.org" }),
+      headers: expect.objectContaining({
+        Host: "learn.example.org",
+        Accept: expect.stringContaining("text/html"),
+      }),
       servername: "learn.example.org", rejectUnauthorized: true, signal,
       checkServerIdentity: expect.any(Function),
     }), expect.any(Function));
     expect(response.destroy).toHaveBeenCalledOnce();
+  });
+});
+
+describe("manual release link reviews", () => {
+  const now = new Date("2026-11-20T15:00:00Z");
+  const entry = {
+    resourceId: "example-resource", url: start + "#intro", finalUrl: start,
+    reason: "http-405", reviewer: "Test Reviewer", reviewedOn: "2026-11-20",
+    evidence: "Mock fixture for evidence in the release record",
+  };
+
+  async function currentResult(status = 405) {
+    const transport = mockTransport();
+    transport.get.mockResolvedValue({ status });
+    const [result] = await checkLinks([entry.url], transport);
+    return { ...result, resourceId: entry.resourceId };
+  }
+
+  it("accepts a current review for an exact eligible result only when supplied", async () => {
+    const current = await currentResult();
+    expect(validateLinkReviews([], [current], now).size).toBe(0);
+    expect(validateLinkReviews([entry], [current], now).get(entry.resourceId)).toEqual(entry);
+  });
+
+  it.each([
+    { resourceId: "another-resource" }, { url: start }, { finalUrl: start + "/lesson" },
+    { reason: "http-406" }, { reviewer: " " }, { evidence: "" },
+    { reviewedOn: "2026-11-05" }, { reviewedOn: "2026-11-21" }, { reviewedOn: "2026-11-31" },
+  ])("rejects a mismatched or invalid review (%j)", async (change) => {
+    const current = await currentResult();
+    expect(() => validateLinkReviews([{ ...entry, ...change }], [current], now)).toThrow();
+  });
+
+  it("rejects duplicates", async () => {
+    const current = await currentResult();
+    expect(() => validateLinkReviews([entry, entry], [current], now)).toThrow(/duplicate/i);
+  });
+
+  it.each([200, 401, 404, 410, 451])("rejects an exception for HTTP %s", async (status) => {
+    const current = await currentResult(status);
+    expect(() => validateLinkReviews([entry], [current], now)).toThrow(/eligible/);
+  });
+
+  it("rejects exceptions for unsafe redirects and TLS certificate failures", async () => {
+    const transport = mockTransport();
+    transport.get.mockResolvedValueOnce({ status: 302, location: "https://127.0.0.1/" });
+    transport.get.mockRejectedValueOnce(Object.assign(new Error("Expired certificate"), { code: "CERT_HAS_EXPIRED" }));
+    const results = await checkLinks([entry.url, entry.url], transport);
+    expect(results).toEqual([
+      expect.objectContaining({ status: "failed", reason: "unsafe redirect destination" }),
+      expect.objectContaining({ status: "failed", reason: expect.stringContaining("CERT_HAS_EXPIRED") }),
+    ]);
+    for (const result of results) {
+      expect(() => validateLinkReviews([entry], [{ ...result, resourceId: entry.resourceId }], now)).toThrow(/eligible/);
+    }
   });
 });

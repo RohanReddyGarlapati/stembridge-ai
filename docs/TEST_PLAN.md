@@ -129,9 +129,15 @@ E2E-5 to E2E-8 use request interception and are run locally and in CI. E2E-1 to 
 | S-5 | No `dangerouslySetInnerHTML`, `localStorage`, `sessionStorage`, `document.cookie` in `app/`, `components/`, `lib/` | grep (scripted in `check-bundle` or lint rule) |
 | S-6 | No AI SDK in MVP `dependencies` | inspect `package.json` |
 | S-7 | Dependencies | `npm audit --omit=dev`: no high or critical |
-| S-8 | **Links (release gate)** | `npm run check-links` against the release catalog: every link successful, with 0 failed or inconclusive checks. |
+| S-8 | **Links (release gate)** | Run `npm run check-links` against the release catalog. Require zero failures and zero unresolved inconclusive checks. |
 
-The link checker reports cross-host redirects, access blocks, and unresolved network errors as inconclusive. Review these results separately from the human content and access checks. The checker does not update verification dates.
+#### Manual resolution of inconclusive link checks
+
+1. Run the default command with `CATALOG_SEED` unset and retain its output. Every failed or inconclusive result makes this command exit nonzero. Eligible results have a printed review reason: `http-403`, `http-405`, `http-406`, `http-429`, or `cross-host-redirect` for a public HTTPS redirect ending in a 2xx response.
+2. For each eligible result, open the exact catalog URL in a logged-out browser. Confirm it reaches the intended resource via HTTPS without certificate warnings, and check the final URL against the checker output. Record what opened, why the automated result was inconclusive, and evidence such as a screenshot reference or a dated browser network record in the release artifacts. If a link is unsafe, has a certificate error, or is known to be broken, leave it unresolved and fix the underlying issue.
+3. Create a JSON array with one object per reviewed result. Each object requires `resourceId`, the exact catalog `url` (including any fragment), the checker's `finalUrl` (use the checked URL without a fragment for a direct result), the printed `reason` code, the responsible `reviewer`, the actual UTC review date `reviewedOn` in YYYY-MM-DD format, and `evidence`. The date must be within 14 days and cannot be in the future. Record only reviews that actually happened.
+4. Run `npm run check-links -- --reviews path/to/link-reviews.json`. The checker reruns all checks against the release catalog and logs accepted reviews separately from automated results. It rejects duplicate, mismatched, stale, or ineligible records. Remove records for links that now pass and re-review any link whose reason or final URL has changed. Unsafe destinations, TLS failures, broken links, and unresolved network errors cannot be cleared with this file.
+5. Retain the JSON, evidence, and both command outputs alongside the release checklist and commit SHA. This process resolves automated reachability only. The separate human content and access review and its `verifiedAt` requirements still apply.
 
 ## 3. Manual tests
 

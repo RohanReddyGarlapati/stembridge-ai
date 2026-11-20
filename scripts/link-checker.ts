@@ -8,15 +8,19 @@ const CONCURRENCY = 4;
 const MAX_REDIRECTS = 5;
 const redirectStatuses = new Set([301, 302, 303, 307, 308]);
 type Status = "successful" | "failed" | "inconclusive";
+export const reviewableHttpStatuses = [403, 405, 406, 429] as const;
+type ReviewableHttpStatus = (typeof reviewableHttpStatuses)[number];
+export type ReviewReason = `http-${ReviewableHttpStatus}` | "cross-host-redirect";
 
 interface AttemptResult {
   status: Status;
   reason: string;
   finalUrl?: string;
+  reviewReason?: ReviewReason;
   retry?: boolean;
 }
 
-interface LinkResult extends Omit<AttemptResult, "retry"> {
+export interface LinkResult extends Omit<AttemptResult, "retry"> {
   url: string;
 }
 
@@ -68,16 +72,20 @@ function errorCode(error: unknown): string | undefined {
 
 async function resolveAddresses(hostname: string, signal: AbortSignal): Promise<string[]> {
   signal.throwIfAborted();
-  const resolver = new Resolver();
+  const resolver = new Resolver({ timeout: 1500, tries: 2 });
   const cancel = () => resolver.cancel();
   signal.addEventListener("abort", cancel, { once: true });
   try {
     const responses = await Promise.allSettled([resolver.resolve4(hostname), resolver.resolve6(hostname)]);
-    return responses.flatMap((response) => {
-      if (response.status === "fulfilled") return response.value;
-      if (["ENODATA", "ENOTFOUND"].includes(errorCode(response.reason) ?? "")) return [];
-      throw response.reason;
-    });
+    const addresses = responses.flatMap((response) => response.status === "fulfilled" ? response.value : []);
+    // Check every returned address in follow(), even when the other family errored.
+    if (addresses.length > 0) return addresses;
+    for (const response of responses) {
+      if (response.status === "rejected" && !["ENODATA", "ENOTFOUND"].includes(errorCode(response.reason) ?? "")) {
+        throw response.reason;
+      }
+    }
+    return addresses;
   } finally {
     signal.removeEventListener("abort", cancel);
   }
@@ -97,6 +105,7 @@ export const httpsTransport: LinkTransport = {
         path: url.pathname + url.search,
         headers: {
           Host: url.host,
+          Accept: "text/html, application/xhtml+xml, application/pdf, */*;q=0.8",
           "User-Agent": "Mozilla/5.0 (compatible; STEMBridge-LinkChecker/1.0)",
         },
         agent: false,
@@ -144,9 +153,15 @@ async function follow(
     const finalUrl = url.href;
     const reason = `HTTP ${status}${hosts.size > 1 ? `; redirect changed hostname (${[...hosts].join(" → ")})` : ""}`;
     if (status >= 200 && status < 300) {
-      return { status: hosts.size === 1 ? "successful" : "inconclusive", reason, finalUrl };
+      if (hosts.size > 1) return { status: "inconclusive", reason, finalUrl, reviewReason: "cross-host-redirect" };
+      return { status: "successful", reason, finalUrl };
     }
-    if (status === 401 || status === 403 || status === 429 || status === 451) {
+    const reviewableStatus = reviewableHttpStatuses.find((candidate) => candidate === status);
+    // Keep redirect review tied to a verified 2xx destination when the host changed.
+    if (reviewableStatus !== undefined && hosts.size === 1) {
+      return { status: "inconclusive", reason, finalUrl, reviewReason: `http-${reviewableStatus}` };
+    }
+    if (status === 401 || status === 451 || reviewableStatus !== undefined) {
       return { status: "inconclusive", reason, finalUrl };
     }
     if (status === 408 || status === 425 || status >= 500) return { status: "inconclusive", reason, finalUrl, retry: true };
@@ -161,8 +176,11 @@ async function attempt(url: URL, transport: LinkTransport): Promise<AttemptResul
   try {
     return await follow(url, transport, controller.signal);
   } catch (error) {
-    if (controller.signal.aborted) return { status: "inconclusive", reason: "timed out after 10 seconds", retry: true };
     const code = errorCode(error);
+    if (code && /CERT|SELF_SIGNED|UNABLE_TO_VERIFY|UNABLE_TO_GET_ISSUER|UNABLE_TO_GET_CRL|ERR_TLS|ERR_SSL/.test(code)) {
+      return { status: "failed", reason: `TLS verification or handshake error (${code})` };
+    }
+    if (controller.signal.aborted) return { status: "inconclusive", reason: "timed out after 10 seconds", retry: true };
     return { status: "inconclusive", reason: "connection or DNS error", retry:
       code === undefined || ["ECONNRESET", "ECONNREFUSED", "EAI_AGAIN", "ETIMEOUT", "ETIMEDOUT", "ESERVFAIL"].includes(code) };
   } finally {
@@ -179,7 +197,8 @@ async function checkLink(url: string, transport: LinkTransport): Promise<LinkRes
     await new Promise((resolve) => setTimeout(resolve, 250));
     result = await attempt(original, transport);
   }
-  return { url, status: result.status, finalUrl: result.finalUrl, reason: retried ? `${result.reason} (after retry)` : result.reason };
+  const { status, finalUrl, reason, reviewReason } = result;
+  return { url, status, finalUrl, reviewReason, reason: retried ? `${reason} (after retry)` : reason };
 }
 
 export async function checkLinks(urls: readonly string[], transport = httpsTransport): Promise<LinkResult[]> {
