@@ -263,7 +263,7 @@ A reload returns to an empty input. That is intentional: no persistence.
 
 ### 7.2 Stale-request protection
 
-- `inputVersion` increments on **every submit**. Submitting clears `careers` and `roadmaps`.
+- A synchronous counter assigns a new `inputVersion` to each distinct submission before the reducer runs. An identical submission already in flight is ignored. Starting a new submission clears `careers` and `roadmaps`.
 - Each request captures `{ version, careerId? }` and its own `AbortController`. Starting a new recommend request aborts any in-flight recommend **and** roadmap request. Selecting a different career aborts the in-flight roadmap request.
 - The reducer applies a response only if `action.version === state.inputVersion` (and, for roadmaps, `action.careerId === state.selectedCareerId`). Otherwise the response is discarded.
 - `AbortError` is ignored silently. It is not shown as an error.
@@ -272,7 +272,7 @@ A reload returns to an empty input. That is intentional: no persistence.
 The reducer is a pure function, unit-tested directly (TEST_PLAN U-CL-*).
 
 ### 7.3 Other client details
-- `apiClient` wraps `fetch` with the abort signal, a 10 s client timeout, and typed parsing of success and error shapes. A 429 response shows "Too many requests. Please wait a moment."
+- `apiClient` forwards cancellation to a request controller, applies a 10 s timeout, and cleans up the timer and abort listener. It parses success and error shapes and exposes student-facing messages. A 429 response with a valid `Retry-After` pauses new requests until that time and tells the student how long to wait.
 - All text rendered as React text: no `dangerouslySetInnerHTML`, no Markdown rendering. Links only from `resource.url` with `target="_blank" rel="noopener noreferrer"`.
 - Accessibility: focus moves to the heading of each new view, loading uses `aria-live="polite"`, chips are toggle buttons with `aria-pressed`.
 

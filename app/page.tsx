@@ -1,10 +1,11 @@
+import { ExploreFlow } from "../components/ExploreFlow";
+import { isCatalogSeedEnabled } from "../lib/catalogLoader";
+
 export default function Home() {
+  const seed = isCatalogSeedEnabled();
   return (
-    <main className="mx-auto max-w-3xl px-6 py-16">
-      <h1 className="text-4xl font-bold tracking-tight">STEMBridge AI</h1>
-      <p className="mt-4 text-lg text-slate-600">
-        Explore STEM careers and discover what to learn first.
-      </p>
+    <main id="main-content" className="site-container" tabIndex={-1}>
+      <ExploreFlow seed={seed} />
     </main>
   );
 }
