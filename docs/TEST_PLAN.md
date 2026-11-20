@@ -129,7 +129,9 @@ E2E-5 to E2E-8 use request interception and are run locally and in CI. E2E-1 to 
 | S-5 | No `dangerouslySetInnerHTML`, `localStorage`, `sessionStorage`, `document.cookie` in `app/`, `components/`, `lib/` | grep (scripted in `check-bundle` or lint rule) |
 | S-6 | No AI SDK in MVP `dependencies` | inspect `package.json` |
 | S-7 | Dependencies | `npm audit --omit=dev`: no high or critical |
-| S-8 | **Links (release gate)** | `npm run check-links`: 0 failures |
+| S-8 | **Links (release gate)** | `npm run check-links` against the release catalog: every link successful, with 0 failed or inconclusive checks. |
+
+The link checker reports cross-host redirects, access blocks, and unresolved network errors as inconclusive. Review these results separately from the human content and access checks. The checker does not update verification dates.
 
 ## 3. Manual tests
 
