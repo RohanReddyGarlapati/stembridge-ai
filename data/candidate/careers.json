@@ -253,29 +253,30 @@
       },
       {
         "id": "cy-practice",
-        "title": "Practise with capture-the-flag challenges",
-        "description": "Solve beginner challenges in cryptography, forensics and web security, then follow guided learning paths.",
+        "title": "Practice cybersecurity in guided simulations",
+        "description": "Use guided lessons and simulations to recognize threats, review fictional evidence and choose defensive responses.",
         "skills": [
-          "Cryptography",
-          "Forensics",
+          "Threat awareness",
+          "Defensive analysis",
           "Problem solving"
         ],
         "duration": "Ongoing",
         "resourceIds": [
-          "cylab-security-academy"
+          "better-hacker"
         ]
       },
       {
         "id": "cy-web-risks",
-        "title": "Understand web application risks",
-        "description": "Learn how websites are built, then study the most common web vulnerabilities and how developers prevent them.",
+        "title": "Understand online risks and protective controls",
+        "description": "Learn how websites work, then explore phishing, authentication and layered defenses through introductory activities.",
         "skills": [
-          "Web security",
-          "HTML and JavaScript"
+          "Online safety",
+          "Authentication",
+          "Web fundamentals"
         ],
         "duration": "3–4 weeks",
         "resourceIds": [
-          "owasp-top-10",
+          "cyber-org-keys",
           "mdn-learn-web"
         ]
       },
@@ -371,7 +372,7 @@
       {
         "id": "rb-motion",
         "title": "Plan robot motion",
-        "description": "Learn how robots plan collision-free paths and move wheeled bases and manipulators, using free video lectures and code.",
+        "description": "Learn how robots plan collision-free paths and move wheeled bases and manipulators, using free video lectures.",
         "skills": [
           "Motion planning",
           "Mobile robots"
@@ -473,15 +474,15 @@
       },
       {
         "id": "se-security",
-        "title": "Build secure software",
-        "description": "Learn the most common security mistakes in web applications and how to design code that avoids them.",
+        "title": "Learn security fundamentals for software",
+        "description": "Explore authentication, phishing and defense in depth, and consider how software design can help protect users.",
         "skills": [
-          "Secure coding",
-          "Web security"
+          "Authentication",
+          "Defense in depth"
         ],
         "duration": "2–3 weeks",
         "resourceIds": [
-          "owasp-top-10"
+          "cyber-org-keys"
         ]
       },
       {
@@ -533,8 +534,8 @@
       },
       {
         "id": "es-field-data",
-        "title": "Observe nature and collect field data",
-        "description": "Record plants, animals and environmental measurements using shared scientific protocols, and contribute to real research datasets.",
+        "title": "Explore biodiversity and field measurement methods",
+        "description": "Explore public wildlife observations in iNaturalist and learn how scientists measure environmental conditions using GLOBE protocols.",
         "skills": [
           "Field observation",
           "Data collection"

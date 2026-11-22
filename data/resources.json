@@ -7,7 +7,7 @@
     "type": "course",
     "cost": "free",
     "level": "beginner",
-    "verifiedAt": "2026-11-22"
+    "verifiedAt": "2026-11-20"
   },
   {
     "id": "cs50-python",
@@ -17,7 +17,7 @@
     "type": "course",
     "cost": "free",
     "level": "beginner",
-    "verifiedAt": "2026-11-22"
+    "verifiedAt": "2026-11-20"
   },
   {
     "id": "py4e",
@@ -27,7 +27,7 @@
     "type": "course",
     "cost": "free",
     "level": "beginner",
-    "verifiedAt": "2026-11-22"
+    "verifiedAt": "2026-11-20"
   },
   {
     "id": "python-tutorial",
@@ -37,7 +37,7 @@
     "type": "article",
     "cost": "free",
     "level": "intermediate",
-    "verifiedAt": "2026-11-22"
+    "verifiedAt": "2026-11-20"
   },
   {
     "id": "missing-semester",
@@ -47,7 +47,7 @@
     "type": "course",
     "cost": "free",
     "level": "intermediate",
-    "verifiedAt": "2026-11-22"
+    "verifiedAt": "2026-11-20"
   },
   {
     "id": "pro-git",
@@ -57,7 +57,7 @@
     "type": "book",
     "cost": "free",
     "level": "beginner",
-    "verifiedAt": "2026-11-22"
+    "verifiedAt": "2026-11-21"
   },
   {
     "id": "mdn-learn-web",
@@ -67,7 +67,7 @@
     "type": "course",
     "cost": "free",
     "level": "beginner",
-    "verifiedAt": "2026-11-22"
+    "verifiedAt": "2026-11-21"
   },
   {
     "id": "odin-project",
@@ -77,7 +77,7 @@
     "type": "course",
     "cost": "free",
     "level": "beginner",
-    "verifiedAt": "2026-11-22"
+    "verifiedAt": "2026-11-21"
   },
   {
     "id": "swe-at-google",
@@ -87,7 +87,7 @@
     "type": "book",
     "cost": "free",
     "level": "intermediate",
-    "verifiedAt": "2026-11-22"
+    "verifiedAt": "2026-11-21"
   },
   {
     "id": "elements-of-ai",
@@ -97,7 +97,7 @@
     "type": "course",
     "cost": "free",
     "level": "beginner",
-    "verifiedAt": "2026-11-22"
+    "verifiedAt": "2026-11-21"
   },
   {
     "id": "ethics-of-ai",
@@ -107,7 +107,7 @@
     "type": "course",
     "cost": "free",
     "level": "beginner",
-    "verifiedAt": "2026-11-22"
+    "verifiedAt": "2026-11-21"
   },
   {
     "id": "cs50-ai",
@@ -117,7 +117,7 @@
     "type": "course",
     "cost": "free",
     "level": "intermediate",
-    "verifiedAt": "2026-11-22"
+    "verifiedAt": "2026-11-21"
   },
   {
     "id": "google-ml-crash-course",
@@ -127,7 +127,7 @@
     "type": "course",
     "cost": "free",
     "level": "intermediate",
-    "verifiedAt": "2026-11-22"
+    "verifiedAt": "2026-11-21"
   },
   {
     "id": "fastai-practical-dl",
@@ -137,7 +137,7 @@
     "type": "course",
     "cost": "free",
     "level": "intermediate",
-    "verifiedAt": "2026-11-22"
+    "verifiedAt": "2026-11-21"
   },
   {
     "id": "hf-llm-course",
@@ -147,7 +147,7 @@
     "type": "course",
     "cost": "free",
     "level": "intermediate",
-    "verifiedAt": "2026-11-22"
+    "verifiedAt": "2026-11-21"
   },
   {
     "id": "nist-ai-rmf",
@@ -157,7 +157,7 @@
     "type": "article",
     "cost": "free",
     "level": "intermediate",
-    "verifiedAt": "2026-11-22"
+    "verifiedAt": "2026-11-21"
   },
   {
     "id": "seeing-theory",
@@ -167,7 +167,7 @@
     "type": "interactive",
     "cost": "free",
     "level": "beginner",
-    "verifiedAt": "2026-11-22"
+    "verifiedAt": "2026-11-21"
   },
   {
     "id": "openintro-statistics",
@@ -177,7 +177,7 @@
     "type": "book",
     "cost": "free",
     "level": "intermediate",
-    "verifiedAt": "2026-11-22"
+    "verifiedAt": "2026-11-21"
   },
   {
     "id": "mit-18-06-linear-algebra",
@@ -187,7 +187,7 @@
     "type": "course",
     "cost": "free",
     "level": "intermediate",
-    "verifiedAt": "2026-11-22"
+    "verifiedAt": "2026-11-21"
   },
   {
     "id": "data-carpentry-python-ecology",
@@ -197,7 +197,7 @@
     "type": "course",
     "cost": "free",
     "level": "beginner",
-    "verifiedAt": "2026-11-22"
+    "verifiedAt": "2026-11-21"
   },
   {
     "id": "scikit-learn-getting-started",
@@ -207,7 +207,7 @@
     "type": "article",
     "cost": "free",
     "level": "intermediate",
-    "verifiedAt": "2026-11-22"
+    "verifiedAt": "2026-11-21"
   },
   {
     "id": "cs50-cybersecurity",
@@ -217,7 +217,7 @@
     "type": "course",
     "cost": "free",
     "level": "beginner",
-    "verifiedAt": "2026-11-22"
+    "verifiedAt": "2026-11-21"
   },
   {
     "id": "overthewire-bandit",
@@ -227,26 +227,26 @@
     "type": "interactive",
     "cost": "free",
     "level": "beginner",
-    "verifiedAt": "2026-11-22"
+    "verifiedAt": "2026-11-21"
   },
   {
-    "id": "cylab-security-academy",
-    "title": "CyLab Security Academy (formerly picoCTF)",
-    "provider": "Carnegie Mellon University CyLab",
-    "url": "https://cylabacademy.org/",
-    "type": "interactive",
+    "id": "better-hacker",
+    "title": "Better Hacker",
+    "provider": "Better Hacker",
+    "url": "https://betterhacker.org/",
+    "type": "course",
     "cost": "free",
     "level": "beginner",
     "verifiedAt": "2026-11-22"
   },
   {
-    "id": "owasp-top-10",
-    "title": "OWASP Top 10",
-    "provider": "OWASP Foundation",
-    "url": "https://owasp.org/www-project-top-ten/",
-    "type": "article",
+    "id": "cyber-org-keys",
+    "title": "CYBER.ORG — Keys to Cybersecurity",
+    "provider": "CYBER.ORG",
+    "url": "https://cyber.org/cyber-keys",
+    "type": "interactive",
     "cost": "free",
-    "level": "intermediate",
+    "level": "beginner",
     "verifiedAt": "2026-11-22"
   },
   {
@@ -257,7 +257,7 @@
     "type": "article",
     "cost": "free",
     "level": "intermediate",
-    "verifiedAt": "2026-11-22"
+    "verifiedAt": "2026-11-21"
   },
   {
     "id": "all-about-circuits-textbook",
@@ -283,8 +283,8 @@
     "id": "modern-robotics",
     "title": "Modern Robotics: Mechanics, Planning, and Control",
     "provider": "Northwestern University (Kevin M. Lynch and Frank C. Park)",
-    "url": "https://hades.mech.northwestern.edu/index.php/Modern_Robotics",
-    "type": "book",
+    "url": "https://modernrobotics.northwestern.edu/",
+    "type": "course",
     "cost": "free",
     "level": "intermediate",
     "verifiedAt": "2026-11-22"

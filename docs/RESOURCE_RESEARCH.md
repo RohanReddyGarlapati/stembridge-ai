@@ -69,8 +69,8 @@ Columns map directly to the `Resource` schema (`id`, `title`, `provider`, `url`,
 |---|---|---|---|---|---|---|---|---|---|
 | `cs50-cybersecurity` | CS50's Introduction to Cybersecurity | Harvard University | https://cs50.harvard.edu/cybersecurity/ | course | free | beginner | Securing accounts, data, systems and software; privacy; recognizing and weighing threats. | `cybersecurity-analyst/cy-foundations` | Loaded. "For technical and non-technical audiences alike." |
 | `overthewire-bandit` | Bandit Wargame | OverTheWire | https://overthewire.org/wargames/bandit/ | interactive | free | beginner | Command-line fundamentals through progressive puzzle levels. | `cybersecurity-analyst/cy-command-line` | Loaded. Starts at Level 0 for absolute beginners. Requires SSH to OverTheWire's own servers. |
-| `cylab-security-academy` | CyLab Security Academy (formerly picoCTF) | Carnegie Mellon University CyLab | https://cylabacademy.org/ | interactive | free | beginner | Capture-the-flag challenges and learning paths in cryptography, web security, forensics and more. | `cybersecurity-analyst/cy-practice` | Loaded. "Always free." Audience stated as middle school through adults. Needs an account. |
-| `owasp-top-10` | OWASP Top 10 | OWASP Foundation | https://owasp.org/www-project-top-ten/ | article | free | intermediate | The most critical web application security risks and how to prevent them. | `cybersecurity-analyst/cy-web-risks`, `software-engineer/se-security` | Loaded. 2025 edition is the latest shown. |
+| `better-hacker` | Better Hacker | Better Hacker | https://betterhacker.org/ | course | free | beginner | Learn introductory cybersecurity concepts, including threats, vulnerabilities, networking, and web security, through guided lessons, knowledge checks, and simulated defensive activities. | `cybersecurity-analyst/cy-practice` | The human reviewer checked the first lesson and a guided activity. |
+| `cyber-org-keys` | CYBER.ORG — Keys to Cybersecurity | CYBER.ORG | https://cyber.org/cyber-keys | interactive | free | beginner | Understand introductory cybersecurity risks and protective practices, including phishing, online threats, authentication, defense in depth and protecting connected devices, through interactive educational activities. | `cybersecurity-analyst/cy-web-risks`, `software-engineer/se-security` | The human reviewer checked a public lesson and interactive activity. |
 | `nist-csf` | Cybersecurity Framework | U.S. National Institute of Standards and Technology (NIST) | https://www.nist.gov/cyberframework | article | free | intermediate | How organizations identify, protect, detect, respond to and recover from cyber risk (CSF 2.0). | `cybersecurity-analyst/cy-risk` | Loaded. CSF 2.0 with Quick Start Guides. |
 
 ### 3.4 Robotics and electronics
@@ -79,15 +79,15 @@ Columns map directly to the `Resource` schema (`id`, `title`, `provider`, `url`,
 |---|---|---|---|---|---|---|---|---|---|
 | `all-about-circuits-textbook` | Lessons in Electric Circuits | All About Circuits (Tony R. Kuphaldt) | https://www.allaboutcircuits.com/textbook/ | book | free | beginner | DC and AC circuits, semiconductors and digital logic, from first principles. | `robotics-engineer/rb-electronics` | Loaded. Free under the Design Science License. Page title is "Textbook for Electrical Engineering & Electronics". |
 | `mit-2-12-intro-robotics` | Introduction to Robotics (2.12) | MIT OpenCourseWare | https://ocw.mit.edu/courses/2-12-introduction-to-robotics-fall-2005/ | course | free | intermediate | Robot mechanisms, kinematics, dynamics, control, actuators and sensors. | `robotics-engineer/rb-mechanics` | Loaded. Lecture notes, problem sets, projects. CC BY-NC-SA 4.0. Fall 2005 materials. |
-| `modern-robotics` | Modern Robotics: Mechanics, Planning, and Control | Northwestern University (Kevin M. Lynch and Frank C. Park) | https://hades.mech.northwestern.edu/index.php/Modern_Robotics | book | free | intermediate | Configuration space, kinematics, dynamics, motion planning and control, with video lectures and code. | `robotics-engineer/rb-mechanics`, `robotics-engineer/rb-motion` | Loaded. Free preprint PDF and video lectures; printed book sold separately. Needs physics, calculus and linear algebra. |
+| `modern-robotics` | Modern Robotics: Mechanics, Planning, and Control | Northwestern University (Kevin M. Lynch and Frank C. Park) | https://modernrobotics.northwestern.edu/ | course | free | intermediate | Configuration space, kinematics, dynamics, motion planning and control, through video lectures. | `robotics-engineer/rb-mechanics`, `robotics-engineer/rb-motion` | The human reviewer verified the video lessons on Northwestern’s course site. |
 
 ### 3.5 Environmental science
 
 | id | title | provider | url | type | cost | level | Learning objective | Used in | Evidence |
 |---|---|---|---|---|---|---|---|---|---|
-| `openlearn-ecology` | Introducing the environment: Ecology and ecosystems | The Open University (OpenLearn) | https://www.open.edu/openlearn/nature-environment/environmental-studies/introducing-the-environment-ecology-and-ecosystems/content-section-0 | course | free | beginner | How ecosystems work and how scientists study human effects on them. | `environmental-scientist/es-ecology` | Loaded, no redirect. Level 1, about 5 hours. Can be started without signing up. |
-| `inaturalist` | iNaturalist | iNaturalist (nonprofit) | https://www.inaturalist.org/ | interactive | free | beginner | Record wildlife observations and contribute to a shared biodiversity dataset. | `environmental-scientist/es-field-data` | Loaded. Posting needs an account. Site points under-13 users to its companion app Seek (see §6). |
-| `globe-program` | The GLOBE Program | GLOBE (NASA-sponsored) | https://www.globe.gov/ | interactive | free | beginner | Collect standardized environmental measurements (air, water, soil, land cover) for NASA science. | `environmental-scientist/es-field-data` | Loaded. Serves students, educators and citizen scientists. |
+| `openlearn-ecology` | Introducing the environment: Ecology and ecosystems | The Open University (OpenLearn) | https://www.open.edu/openlearn/nature-environment/environmental-studies/introducing-the-environment-ecology-and-ecosystems/content-section-0?active-tab=description-tab | course | free | beginner | How ecosystems work and how scientists study human effects on them. | `environmental-scientist/es-ecology` | The course description was confirmed in a signed-out browser. |
+| `inaturalist` | iNaturalist | iNaturalist (nonprofit) | https://www.inaturalist.org/ | interactive | free | beginner | Explore public wildlife observations, identify species, and examine biodiversity patterns. | `environmental-scientist/es-field-data` | The human reviewer verified public observations. Contributions require an account. |
+| `globe-program` | The GLOBE Program | GLOBE (NASA-sponsored) | https://www.globe.gov/ | interactive | free | beginner | Understand standardized environmental measurement methods for air, water, soil, and land cover through public protocols. | `environmental-scientist/es-field-data` | The human reviewer verified public protocols. Data submission requires an account. |
 | `nasa-earth-observatory` | NASA Earth Observatory | NASA Science | https://science.nasa.gov/earth/earth-observatory | article | free | beginner | Satellite images and articles explaining changes in Earth's land, oceans and atmosphere. | `environmental-scientist/es-remote-sensing` | Loaded. The old `earthobservatory.nasa.gov` domain redirects here with a 301 (§4). |
 
 ## 4. Candidates not in the proposed catalog
@@ -127,6 +127,8 @@ Columns map directly to the `Resource` schema (`id`, `title`, `provider`, `url`,
 ### 4.4 Excluded after research
 
 NASA Earthdata (ARSET) **Fundamentals of Remote Sensing** (`nasa-arset-remote-sensing`) was among the 34 original proposals. The 2026-11-19 automated pass reached the [training landing page](https://www.earthdata.nasa.gov/learn/trainings/fundamentals-remote-sensing), which described a two-hour self-paced introduction to how satellites measure Earth and the limits of their data. On 2026-11-22, the course was excluded because lessons require registration and authenticated lesson access was not verified. See the [human review tracker](HUMAN_REVIEW_TRACKER.md).
+
+The subsequent human review replaced CyLab Security Academy with Better Hacker and OWASP Top 10 with CYBER.ORG Keys to Cybersecurity. The Modern Robotics entry now points to Northwestern’s video lessons. See the [verification checklist](RESOURCE_VERIFICATION_CHECKLIST.md) for the review notes.
 
 ## 5. Proposed careers and roadmaps
 
@@ -169,8 +171,8 @@ All step descriptions are under 60 words and 600 characters. Step IDs are kebab-
 | 1 | `cy-foundations` | Learn security fundamentals | Learn how accounts, data, systems and software are attacked and defended, and how to weigh risks and trade-offs. | Security concepts, Threat awareness | 4–6 weeks | `cs50-cybersecurity` |
 | 2 | `cy-command-line` | Get comfortable with the command line | Analysts work in terminals every day. Practise navigating files, searching text and using shell tools through guided levels. | Linux command line, Shell tools | 3–4 weeks | `overthewire-bandit`, `missing-semester` |
 | 3 | `cy-programming` | Learn programming and how computers work | Understanding code and how the web works helps you spot vulnerabilities and automate security tasks. | Programming, Computer systems | 8–12 weeks | `cs50x`, `cs50-python` |
-| 4 | `cy-practice` | Practise with capture-the-flag challenges | Solve beginner challenges in cryptography, forensics and web security, then follow guided learning paths. | Cryptography, Forensics, Problem solving | Ongoing | `cylab-security-academy` |
-| 5 | `cy-web-risks` | Understand web application risks | Learn how websites are built, then study the most common web vulnerabilities and how developers prevent them. | Web security, HTML and JavaScript | 3–4 weeks | `owasp-top-10`, `mdn-learn-web` |
+| 4 | `cy-practice` | Practice cybersecurity in guided simulations | Use guided lessons and simulations to recognize threats, review fictional evidence and choose defensive responses. | Threat awareness, Defensive analysis, Problem solving | Ongoing | `better-hacker` |
+| 5 | `cy-web-risks` | Understand online risks and protective controls | Learn how websites work, then explore phishing, authentication and layered defenses through introductory activities. | Online safety, Authentication, Web fundamentals | 3–4 weeks | `cyber-org-keys`, `mdn-learn-web` |
 | 6 | `cy-risk` | Learn how organizations manage cyber risk | Explore how organizations identify, protect, detect, respond to and recover from security incidents. | Risk management, Security frameworks | 1–2 weeks | `nist-csf` |
 
 ### 5.4 `robotics-engineer`: Robotics Engineer
@@ -184,7 +186,7 @@ All step descriptions are under 60 words and 600 characters. Step IDs are kebab-
 | 2 | `rb-electronics` | Understand circuits and electronics | Learn voltage, current and resistance, then semiconductors and digital logic, the building blocks of sensors and motor controllers. | Circuits, Electronics, Digital logic | 4–6 weeks | `all-about-circuits-textbook` |
 | 3 | `rb-math` | Learn the math of motion | Vectors and matrices describe where a robot is and how it moves. Build these linear algebra skills step by step. | Linear algebra, Vectors | 6–8 weeks | `mit-18-06-linear-algebra` |
 | 4 | `rb-mechanics` | Study robot mechanisms and control | Learn how robot arms and wheels are designed, how kinematics and dynamics work, and how controllers keep motion accurate. | Kinematics, Dynamics, Control | 8–12 weeks | `mit-2-12-intro-robotics`, `modern-robotics` |
-| 5 | `rb-motion` | Plan robot motion | Learn how robots plan collision-free paths and move wheeled bases and manipulators, using free video lectures and code. | Motion planning, Mobile robots | 4–6 weeks | `modern-robotics` |
+| 5 | `rb-motion` | Plan robot motion | Learn how robots plan collision-free paths and move wheeled bases and manipulators, using free video lectures. | Motion planning, Mobile robots | 4–6 weeks | `modern-robotics` |
 | 6 | `rb-intelligence` | Add intelligence with AI | Use search, optimization and machine learning so robots can make decisions and recognize what they sense. | Search algorithms, Machine learning | 6–8 weeks | `cs50-ai` |
 
 ### 5.5 `software-engineer`: Software Engineer
@@ -198,7 +200,7 @@ All step descriptions are under 60 words and 600 characters. Step IDs are kebab-
 | 2 | `se-web` | Build websites with HTML, CSS and JavaScript | Create real web pages and apps, from layout and styling to interactivity and accessibility, through guided projects. | HTML and CSS, JavaScript, Accessibility | 8–12 weeks | `mdn-learn-web`, `odin-project` |
 | 3 | `se-tools` | Master your developer tools | Use the command line, editors, debuggers and Git confidently so you can work efficiently and collaborate. | Git, Command line, Debugging | 3–4 weeks | `missing-semester`, `pro-git` |
 | 4 | `se-testing` | Write tested, reliable code | Write unit tests, handle errors and organize code into modules so your programs keep working as they grow. | Unit testing, Error handling | 3–4 weeks | `cs50-python`, `python-tutorial` |
-| 5 | `se-security` | Build secure software | Learn the most common security mistakes in web applications and how to design code that avoids them. | Secure coding, Web security | 2–3 weeks | `owasp-top-10` |
+| 5 | `se-security` | Learn security fundamentals for software | Explore authentication, phishing and defense in depth, and consider how software design can help protect users. | Authentication, Defense in depth | 2–3 weeks | `cyber-org-keys` |
 | 6 | `se-teams` | Learn how teams build software at scale | Explore code review, testing culture, documentation and dependency management used by large engineering teams. | Code review, Teamwork | 3–4 weeks | `swe-at-google` |
 
 ### 5.6 `environmental-scientist`: Environmental Scientist
@@ -209,7 +211,7 @@ All step descriptions are under 60 words and 600 characters. Step IDs are kebab-
 | # | step id | title | description | skills | duration | resourceIds |
 |---|---|---|---|---|---|---|
 | 1 | `es-ecology` | Learn how ecosystems work | Study how living things interact with each other and their environment, and how human activity changes ecosystems. | Ecology, Scientific vocabulary | 1–2 weeks | `openlearn-ecology` |
-| 2 | `es-field-data` | Observe nature and collect field data | Record plants, animals and environmental measurements using shared scientific protocols, and contribute to real research datasets. | Field observation, Data collection | Ongoing | `inaturalist`, `globe-program` |
+| 2 | `es-field-data` | Explore biodiversity and field measurement methods | Explore public wildlife observations in iNaturalist and learn how scientists measure environmental conditions using GLOBE protocols. | Field observation, Data collection | Ongoing | `inaturalist`, `globe-program` |
 | 3 | `es-statistics` | Learn statistics for science | Learn to summarize measurements, compare groups and test whether a pattern in your data is meaningful. | Statistics, Probability | 6–8 weeks | `seeing-theory`, `openintro-statistics` |
 | 4 | `es-data` | Analyze environmental data with Python | Use Python and pandas to clean, combine and plot real ecological survey data. | Python, Data analysis, Data visualization | 4–6 weeks | `data-carpentry-python-ecology`, `py4e` |
 | 5 | `es-remote-sensing` | See Earth from space with satellite data | Learn how satellites measure land, oceans and air, and explore images that show environmental change over time. | Remote sensing, Satellite imagery | 2–3 weeks | `nasa-earth-observatory` |
@@ -230,19 +232,18 @@ Checked by hand against `lib/schemas.ts`, `lib/catalogSchemas.ts` and `lib/catal
 | URLs absolute HTTPS, no credentials, no local or IP hosts, no `utm_*`, unique ignoring fragments | ✅ |
 | No `example.com` | ✅ |
 | `type`, `cost`, `level` enums | ✅ |
-| `verifiedAt` valid ISO date, not in the future, **human-checked within 14 days of release** | ✅ All 33 human verification dates recorded as 2026-11-22. Recheck freshness against the release date. |
+| `verifiedAt` valid ISO date, not in the future, **human-checked within 14 days of release** | ✅ All 33 human verification dates recorded from 2026-11-20 through 2026-11-22. Recheck freshness against the release date. |
 
 ## 7. Open issues for the developer
 
 1. **Human review completed on 2026-11-22.** See the [verification checklist](RESOURCE_VERIFICATION_CHECKLIST.md). Run `npm run check-links` against the production catalog and resolve eligible inconclusive results using the [test plan](TEST_PLAN.md#manual-resolution-of-inconclusive-link-checks).
 2. **Accounts and minors.** These resources need or encourage accounts:
-   - `cylab-security-academy` (account required; site says middle school through adults).
    - `inaturalist` (account to post; the site points under-13 users to Seek).
    - `openlearn-ecology` (optional account).
    - `globe-program` (student data entry usually goes through a teacher).
 
    None of them collects data through STEMBridge, but consider a short "some resources ask you to create an account; ask a parent or teacher first" note in the UI copy.
-3. **Intermediate resources.** 15 of 33 resources are intermediate (college level), mostly in the AI, robotics and math steps. The beginner steps come first in every roadmap, but if younger students struggle, the Khan Academy pages in §4.2 are the best beginner substitutes once manually checked.
+3. **Intermediate resources.** 14 of 33 resources are intermediate (college level), mostly in the AI, robotics and math steps. The beginner steps come first in every roadmap, but if younger students struggle, the Khan Academy pages in §4.2 are the best beginner substitutes once manually checked.
 4. **Documentation alignment.** ARCHITECTURE §4.1 still lists the old initial career set (it includes biomedical engineer and mechanical/aerospace as optional). Update it to these six careers when the catalog is written. With no `health`-field career, the fallback "diverse default set (three different fields)" will use technology, engineering and science, which still satisfies the rule.
 5. **Tag fit.** `health` maps only to `data-scientist` and `environmental-scientist`, and `space` maps to `robotics-engineer` and `environmental-scientist`. Check that these matches feel reasonable when the keyword map is built (T2.1).
 6. **Old course materials.** MIT 2.12 dates from 2005, and NIST AI RMF 1.0 is under revision. Both are still authoritative, but check them again at each release.
