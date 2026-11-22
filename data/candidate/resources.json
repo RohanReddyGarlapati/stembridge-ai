@@ -288,15 +288,6 @@
     "level": "beginner"
   },
   {
-    "id": "nasa-arset-remote-sensing",
-    "title": "Fundamentals of Remote Sensing",
-    "provider": "NASA Earthdata (ARSET)",
-    "url": "https://www.earthdata.nasa.gov/learn/trainings/fundamentals-remote-sensing",
-    "type": "course",
-    "cost": "free",
-    "level": "beginner"
-  },
-  {
     "id": "nasa-earth-observatory",
     "title": "NASA Earth Observatory",
     "provider": "NASA Science",
