@@ -12,7 +12,7 @@ export default defineConfig({
     : {
       command: "npm run dev -- --hostname 127.0.0.1 --port 32149", url: localUrl,
       reuseExistingServer: false,
-      env: { CATALOG_SEED: "1", AI_PROVIDER: "none", APP_ORIGIN: localUrl, RATE_LIMIT_PER_MIN: "120" },
+      env: { CATALOG_SEED: "", AI_PROVIDER: "none", APP_ORIGIN: localUrl, RATE_LIMIT_PER_MIN: "120" },
     },
   projects: [
     { name: "chromium", use: { ...devices["Desktop Chrome"] } },

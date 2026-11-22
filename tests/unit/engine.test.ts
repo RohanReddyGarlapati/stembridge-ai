@@ -1,6 +1,5 @@
 import { beforeEach, describe, expect, it, vi } from "vitest";
 import { getCareer, getResource, listCareers } from "../../lib/catalog";
-import { isCatalogSeedEnabled } from "../../lib/catalogLoader";
 import { careersFileSchema, resourcesFileSchema } from "../../lib/catalogSchemas";
 import { getKeywordTags } from "../../lib/engine/keywords";
 import { normalize, tokenize } from "../../lib/engine/normalize";
@@ -169,17 +168,17 @@ describe("recommendations", () => {
     }
   });
 
-  it.skipIf(!isCatalogSeedEnabled())("returns three distinct catalog careers in the strict response shape", async () => {
+  it("returns three distinct bundled catalog careers in the strict response shape", async () => {
     const catalog = await vi.importActual<typeof import("../../lib/catalog")>("../../lib/catalog");
     vi.mocked(listCareers).mockImplementation(catalog.listCareers);
-    for (const interests of ["robots", "asdfgh"]) {
+    for (const interests of ["robots and electronics", "asdfgh"]) {
       const careers = recommend({ interests, tags: [] });
       const response = recommendResponseSchema.parse({ personalization: "none", careers });
       const ids = response.careers.map(({ id }) => id);
       expect(ids).toHaveLength(3);
-      expect(new Set(ids)).toEqual(new Set(catalog.careerIds));
-      expect(ids[0]).toBe("robotics-engineer");
-      if (interests === "asdfgh") expect(ids).toEqual(catalog.careerIds);
+      expect(new Set(ids)).toHaveProperty("size", 3);
+      expect(ids.every((id) => catalog.careerIds.includes(id))).toBe(true);
+      if (interests === "robots and electronics") expect(ids[0]).toBe("robotics-engineer");
     }
   });
 

@@ -1,62 +1,332 @@
 [
   {
-    "id": "seed-programming",
-    "title": "Placeholder: Programming practice",
-    "provider": "Development seed only",
-    "url": "https://example.com/stembridge-seed/programming",
+    "id": "cs50x",
+    "title": "CS50's Introduction to Computer Science",
+    "provider": "Harvard University",
+    "url": "https://cs50.harvard.edu/x/",
+    "type": "course",
+    "cost": "free",
+    "level": "beginner",
+    "verifiedAt": "2026-11-22"
+  },
+  {
+    "id": "cs50-python",
+    "title": "CS50's Introduction to Programming with Python",
+    "provider": "Harvard University",
+    "url": "https://cs50.harvard.edu/python/",
+    "type": "course",
+    "cost": "free",
+    "level": "beginner",
+    "verifiedAt": "2026-11-22"
+  },
+  {
+    "id": "py4e",
+    "title": "Python for Everybody",
+    "provider": "University of Michigan",
+    "url": "https://www.py4e.com/",
+    "type": "course",
+    "cost": "free",
+    "level": "beginner",
+    "verifiedAt": "2026-11-22"
+  },
+  {
+    "id": "python-tutorial",
+    "title": "The Python Tutorial",
+    "provider": "Python Software Foundation",
+    "url": "https://docs.python.org/3/tutorial/",
+    "type": "article",
+    "cost": "free",
+    "level": "intermediate",
+    "verifiedAt": "2026-11-22"
+  },
+  {
+    "id": "missing-semester",
+    "title": "The Missing Semester of Your CS Education",
+    "provider": "MIT CSAIL",
+    "url": "https://missing.csail.mit.edu/",
+    "type": "course",
+    "cost": "free",
+    "level": "intermediate",
+    "verifiedAt": "2026-11-22"
+  },
+  {
+    "id": "pro-git",
+    "title": "Pro Git (2nd Edition)",
+    "provider": "Scott Chacon and Ben Straub (git-scm.com)",
+    "url": "https://git-scm.com/book/en/v2",
+    "type": "book",
+    "cost": "free",
+    "level": "beginner",
+    "verifiedAt": "2026-11-22"
+  },
+  {
+    "id": "mdn-learn-web",
+    "title": "Learn web development",
+    "provider": "Mozilla (MDN)",
+    "url": "https://developer.mozilla.org/en-US/docs/Learn_web_development",
+    "type": "course",
+    "cost": "free",
+    "level": "beginner",
+    "verifiedAt": "2026-11-22"
+  },
+  {
+    "id": "odin-project",
+    "title": "The Odin Project",
+    "provider": "The Odin Project",
+    "url": "https://www.theodinproject.com/",
+    "type": "course",
+    "cost": "free",
+    "level": "beginner",
+    "verifiedAt": "2026-11-22"
+  },
+  {
+    "id": "swe-at-google",
+    "title": "Software Engineering at Google",
+    "provider": "Titus Winters, Tom Manshreck and Hyrum Wright (O'Reilly)",
+    "url": "https://abseil.io/resources/swe-book",
+    "type": "book",
+    "cost": "free",
+    "level": "intermediate",
+    "verifiedAt": "2026-11-22"
+  },
+  {
+    "id": "elements-of-ai",
+    "title": "Elements of AI",
+    "provider": "University of Helsinki and MinnaLearn",
+    "url": "https://www.elementsofai.com/",
+    "type": "course",
+    "cost": "free",
+    "level": "beginner",
+    "verifiedAt": "2026-11-22"
+  },
+  {
+    "id": "ethics-of-ai",
+    "title": "Ethics of AI",
+    "provider": "University of Helsinki",
+    "url": "https://ethics-of-ai.mooc.fi/",
+    "type": "course",
+    "cost": "free",
+    "level": "beginner",
+    "verifiedAt": "2026-11-22"
+  },
+  {
+    "id": "cs50-ai",
+    "title": "CS50's Introduction to Artificial Intelligence with Python",
+    "provider": "Harvard University",
+    "url": "https://cs50.harvard.edu/ai/",
+    "type": "course",
+    "cost": "free",
+    "level": "intermediate",
+    "verifiedAt": "2026-11-22"
+  },
+  {
+    "id": "google-ml-crash-course",
+    "title": "Machine Learning Crash Course",
+    "provider": "Google for Developers",
+    "url": "https://developers.google.com/machine-learning/crash-course",
+    "type": "course",
+    "cost": "free",
+    "level": "intermediate",
+    "verifiedAt": "2026-11-22"
+  },
+  {
+    "id": "fastai-practical-dl",
+    "title": "Practical Deep Learning for Coders",
+    "provider": "fast.ai",
+    "url": "https://course.fast.ai/",
+    "type": "course",
+    "cost": "free",
+    "level": "intermediate",
+    "verifiedAt": "2026-11-22"
+  },
+  {
+    "id": "hf-llm-course",
+    "title": "Hugging Face LLM Course",
+    "provider": "Hugging Face",
+    "url": "https://huggingface.co/learn/llm-course",
+    "type": "course",
+    "cost": "free",
+    "level": "intermediate",
+    "verifiedAt": "2026-11-22"
+  },
+  {
+    "id": "nist-ai-rmf",
+    "title": "AI Risk Management Framework",
+    "provider": "U.S. National Institute of Standards and Technology (NIST)",
+    "url": "https://www.nist.gov/itl/ai-risk-management-framework",
+    "type": "article",
+    "cost": "free",
+    "level": "intermediate",
+    "verifiedAt": "2026-11-22"
+  },
+  {
+    "id": "seeing-theory",
+    "title": "Seeing Theory",
+    "provider": "Brown University",
+    "url": "https://seeing-theory.brown.edu/",
     "type": "interactive",
     "cost": "free",
     "level": "beginner",
-    "verifiedAt": "2000-01-01"
+    "verifiedAt": "2026-11-22"
   },
   {
-    "id": "seed-circuits",
-    "title": "Placeholder: Circuit basics",
-    "provider": "Development seed only",
-    "url": "https://example.com/stembridge-seed/circuits",
+    "id": "openintro-statistics",
+    "title": "OpenIntro Statistics",
+    "provider": "OpenIntro",
+    "url": "https://www.openintro.org/book/os/",
+    "type": "book",
+    "cost": "free",
+    "level": "intermediate",
+    "verifiedAt": "2026-11-22"
+  },
+  {
+    "id": "mit-18-06-linear-algebra",
+    "title": "Linear Algebra (18.06)",
+    "provider": "MIT OpenCourseWare",
+    "url": "https://ocw.mit.edu/courses/18-06-linear-algebra-spring-2010/",
+    "type": "course",
+    "cost": "free",
+    "level": "intermediate",
+    "verifiedAt": "2026-11-22"
+  },
+  {
+    "id": "data-carpentry-python-ecology",
+    "title": "Data Analysis and Visualization in Python for Ecologists",
+    "provider": "Data Carpentry (The Carpentries)",
+    "url": "https://datacarpentry.github.io/python-ecology-lesson/",
+    "type": "course",
+    "cost": "free",
+    "level": "beginner",
+    "verifiedAt": "2026-11-22"
+  },
+  {
+    "id": "scikit-learn-getting-started",
+    "title": "Getting Started with scikit-learn",
+    "provider": "scikit-learn developers",
+    "url": "https://scikit-learn.org/stable/getting_started.html",
     "type": "article",
     "cost": "free",
-    "level": "beginner",
-    "verifiedAt": "2000-01-01"
+    "level": "intermediate",
+    "verifiedAt": "2026-11-22"
   },
   {
-    "id": "seed-sensors",
-    "title": "Placeholder: Sensor and measurement practice",
-    "provider": "Development seed only",
-    "url": "https://example.com/stembridge-seed/sensors",
-    "type": "video",
+    "id": "cs50-cybersecurity",
+    "title": "CS50's Introduction to Cybersecurity",
+    "provider": "Harvard University",
+    "url": "https://cs50.harvard.edu/cybersecurity/",
+    "type": "course",
     "cost": "free",
     "level": "beginner",
-    "verifiedAt": "2000-01-01"
+    "verifiedAt": "2026-11-22"
   },
   {
-    "id": "seed-prototyping",
-    "title": "Placeholder: Prototype planning",
-    "provider": "Development seed only",
-    "url": "https://example.com/stembridge-seed/prototyping",
-    "type": "article",
-    "cost": "free",
-    "level": "beginner",
-    "verifiedAt": "2000-01-01"
-  },
-  {
-    "id": "seed-ecosystems",
-    "title": "Placeholder: Ecosystem observation",
-    "provider": "Development seed only",
-    "url": "https://example.com/stembridge-seed/ecosystems",
-    "type": "article",
-    "cost": "free",
-    "level": "beginner",
-    "verifiedAt": "2000-01-01"
-  },
-  {
-    "id": "seed-environmental-data",
-    "title": "Placeholder: Environmental data practice",
-    "provider": "Development seed only",
-    "url": "https://example.com/stembridge-seed/environmental-data",
+    "id": "overthewire-bandit",
+    "title": "Bandit Wargame",
+    "provider": "OverTheWire",
+    "url": "https://overthewire.org/wargames/bandit/",
     "type": "interactive",
     "cost": "free",
     "level": "beginner",
-    "verifiedAt": "2000-01-01"
+    "verifiedAt": "2026-11-22"
+  },
+  {
+    "id": "cylab-security-academy",
+    "title": "CyLab Security Academy (formerly picoCTF)",
+    "provider": "Carnegie Mellon University CyLab",
+    "url": "https://cylabacademy.org/",
+    "type": "interactive",
+    "cost": "free",
+    "level": "beginner",
+    "verifiedAt": "2026-11-22"
+  },
+  {
+    "id": "owasp-top-10",
+    "title": "OWASP Top 10",
+    "provider": "OWASP Foundation",
+    "url": "https://owasp.org/www-project-top-ten/",
+    "type": "article",
+    "cost": "free",
+    "level": "intermediate",
+    "verifiedAt": "2026-11-22"
+  },
+  {
+    "id": "nist-csf",
+    "title": "Cybersecurity Framework",
+    "provider": "U.S. National Institute of Standards and Technology (NIST)",
+    "url": "https://www.nist.gov/cyberframework",
+    "type": "article",
+    "cost": "free",
+    "level": "intermediate",
+    "verifiedAt": "2026-11-22"
+  },
+  {
+    "id": "all-about-circuits-textbook",
+    "title": "Lessons in Electric Circuits",
+    "provider": "All About Circuits (Tony R. Kuphaldt)",
+    "url": "https://www.allaboutcircuits.com/textbook/",
+    "type": "book",
+    "cost": "free",
+    "level": "beginner",
+    "verifiedAt": "2026-11-22"
+  },
+  {
+    "id": "mit-2-12-intro-robotics",
+    "title": "Introduction to Robotics (2.12)",
+    "provider": "MIT OpenCourseWare",
+    "url": "https://ocw.mit.edu/courses/2-12-introduction-to-robotics-fall-2005/",
+    "type": "course",
+    "cost": "free",
+    "level": "intermediate",
+    "verifiedAt": "2026-11-22"
+  },
+  {
+    "id": "modern-robotics",
+    "title": "Modern Robotics: Mechanics, Planning, and Control",
+    "provider": "Northwestern University (Kevin M. Lynch and Frank C. Park)",
+    "url": "https://hades.mech.northwestern.edu/index.php/Modern_Robotics",
+    "type": "book",
+    "cost": "free",
+    "level": "intermediate",
+    "verifiedAt": "2026-11-22"
+  },
+  {
+    "id": "openlearn-ecology",
+    "title": "Introducing the environment: Ecology and ecosystems",
+    "provider": "The Open University (OpenLearn)",
+    "url": "https://www.open.edu/openlearn/nature-environment/environmental-studies/introducing-the-environment-ecology-and-ecosystems/content-section-0?active-tab=description-tab",
+    "type": "course",
+    "cost": "free",
+    "level": "beginner",
+    "verifiedAt": "2026-11-22"
+  },
+  {
+    "id": "inaturalist",
+    "title": "iNaturalist",
+    "provider": "iNaturalist (nonprofit)",
+    "url": "https://www.inaturalist.org/",
+    "type": "interactive",
+    "cost": "free",
+    "level": "beginner",
+    "verifiedAt": "2026-11-22"
+  },
+  {
+    "id": "globe-program",
+    "title": "The GLOBE Program",
+    "provider": "GLOBE (NASA-sponsored)",
+    "url": "https://www.globe.gov/",
+    "type": "interactive",
+    "cost": "free",
+    "level": "beginner",
+    "verifiedAt": "2026-11-22"
+  },
+  {
+    "id": "nasa-earth-observatory",
+    "title": "NASA Earth Observatory",
+    "provider": "NASA Science",
+    "url": "https://science.nasa.gov/earth/earth-observatory",
+    "type": "article",
+    "cost": "free",
+    "level": "beginner",
+    "verifiedAt": "2026-11-22"
   }
 ]

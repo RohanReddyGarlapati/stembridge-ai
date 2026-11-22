@@ -6,7 +6,8 @@
     "url": "https://cs50.harvard.edu/x/",
     "type": "course",
     "cost": "free",
-    "level": "beginner"
+    "level": "beginner",
+    "verifiedAt": "2026-11-22"
   },
   {
     "id": "cs50-python",
@@ -15,7 +16,8 @@
     "url": "https://cs50.harvard.edu/python/",
     "type": "course",
     "cost": "free",
-    "level": "beginner"
+    "level": "beginner",
+    "verifiedAt": "2026-11-22"
   },
   {
     "id": "py4e",
@@ -24,7 +26,8 @@
     "url": "https://www.py4e.com/",
     "type": "course",
     "cost": "free",
-    "level": "beginner"
+    "level": "beginner",
+    "verifiedAt": "2026-11-22"
   },
   {
     "id": "python-tutorial",
@@ -33,7 +36,8 @@
     "url": "https://docs.python.org/3/tutorial/",
     "type": "article",
     "cost": "free",
-    "level": "intermediate"
+    "level": "intermediate",
+    "verifiedAt": "2026-11-22"
   },
   {
     "id": "missing-semester",
@@ -42,7 +46,8 @@
     "url": "https://missing.csail.mit.edu/",
     "type": "course",
     "cost": "free",
-    "level": "intermediate"
+    "level": "intermediate",
+    "verifiedAt": "2026-11-22"
   },
   {
     "id": "pro-git",
@@ -51,7 +56,8 @@
     "url": "https://git-scm.com/book/en/v2",
     "type": "book",
     "cost": "free",
-    "level": "beginner"
+    "level": "beginner",
+    "verifiedAt": "2026-11-22"
   },
   {
     "id": "mdn-learn-web",
@@ -60,7 +66,8 @@
     "url": "https://developer.mozilla.org/en-US/docs/Learn_web_development",
     "type": "course",
     "cost": "free",
-    "level": "beginner"
+    "level": "beginner",
+    "verifiedAt": "2026-11-22"
   },
   {
     "id": "odin-project",
@@ -69,7 +76,8 @@
     "url": "https://www.theodinproject.com/",
     "type": "course",
     "cost": "free",
-    "level": "beginner"
+    "level": "beginner",
+    "verifiedAt": "2026-11-22"
   },
   {
     "id": "swe-at-google",
@@ -78,7 +86,8 @@
     "url": "https://abseil.io/resources/swe-book",
     "type": "book",
     "cost": "free",
-    "level": "intermediate"
+    "level": "intermediate",
+    "verifiedAt": "2026-11-22"
   },
   {
     "id": "elements-of-ai",
@@ -87,7 +96,8 @@
     "url": "https://www.elementsofai.com/",
     "type": "course",
     "cost": "free",
-    "level": "beginner"
+    "level": "beginner",
+    "verifiedAt": "2026-11-22"
   },
   {
     "id": "ethics-of-ai",
@@ -96,7 +106,8 @@
     "url": "https://ethics-of-ai.mooc.fi/",
     "type": "course",
     "cost": "free",
-    "level": "beginner"
+    "level": "beginner",
+    "verifiedAt": "2026-11-22"
   },
   {
     "id": "cs50-ai",
@@ -105,7 +116,8 @@
     "url": "https://cs50.harvard.edu/ai/",
     "type": "course",
     "cost": "free",
-    "level": "intermediate"
+    "level": "intermediate",
+    "verifiedAt": "2026-11-22"
   },
   {
     "id": "google-ml-crash-course",
@@ -114,7 +126,8 @@
     "url": "https://developers.google.com/machine-learning/crash-course",
     "type": "course",
     "cost": "free",
-    "level": "intermediate"
+    "level": "intermediate",
+    "verifiedAt": "2026-11-22"
   },
   {
     "id": "fastai-practical-dl",
@@ -123,7 +136,8 @@
     "url": "https://course.fast.ai/",
     "type": "course",
     "cost": "free",
-    "level": "intermediate"
+    "level": "intermediate",
+    "verifiedAt": "2026-11-22"
   },
   {
     "id": "hf-llm-course",
@@ -132,7 +146,8 @@
     "url": "https://huggingface.co/learn/llm-course",
     "type": "course",
     "cost": "free",
-    "level": "intermediate"
+    "level": "intermediate",
+    "verifiedAt": "2026-11-22"
   },
   {
     "id": "nist-ai-rmf",
@@ -141,7 +156,8 @@
     "url": "https://www.nist.gov/itl/ai-risk-management-framework",
     "type": "article",
     "cost": "free",
-    "level": "intermediate"
+    "level": "intermediate",
+    "verifiedAt": "2026-11-22"
   },
   {
     "id": "seeing-theory",
@@ -150,7 +166,8 @@
     "url": "https://seeing-theory.brown.edu/",
     "type": "interactive",
     "cost": "free",
-    "level": "beginner"
+    "level": "beginner",
+    "verifiedAt": "2026-11-22"
   },
   {
     "id": "openintro-statistics",
@@ -159,7 +176,8 @@
     "url": "https://www.openintro.org/book/os/",
     "type": "book",
     "cost": "free",
-    "level": "intermediate"
+    "level": "intermediate",
+    "verifiedAt": "2026-11-22"
   },
   {
     "id": "mit-18-06-linear-algebra",
@@ -168,7 +186,8 @@
     "url": "https://ocw.mit.edu/courses/18-06-linear-algebra-spring-2010/",
     "type": "course",
     "cost": "free",
-    "level": "intermediate"
+    "level": "intermediate",
+    "verifiedAt": "2026-11-22"
   },
   {
     "id": "data-carpentry-python-ecology",
@@ -177,7 +196,8 @@
     "url": "https://datacarpentry.github.io/python-ecology-lesson/",
     "type": "course",
     "cost": "free",
-    "level": "beginner"
+    "level": "beginner",
+    "verifiedAt": "2026-11-22"
   },
   {
     "id": "scikit-learn-getting-started",
@@ -186,7 +206,8 @@
     "url": "https://scikit-learn.org/stable/getting_started.html",
     "type": "article",
     "cost": "free",
-    "level": "intermediate"
+    "level": "intermediate",
+    "verifiedAt": "2026-11-22"
   },
   {
     "id": "cs50-cybersecurity",
@@ -195,7 +216,8 @@
     "url": "https://cs50.harvard.edu/cybersecurity/",
     "type": "course",
     "cost": "free",
-    "level": "beginner"
+    "level": "beginner",
+    "verifiedAt": "2026-11-22"
   },
   {
     "id": "overthewire-bandit",
@@ -204,7 +226,8 @@
     "url": "https://overthewire.org/wargames/bandit/",
     "type": "interactive",
     "cost": "free",
-    "level": "beginner"
+    "level": "beginner",
+    "verifiedAt": "2026-11-22"
   },
   {
     "id": "cylab-security-academy",
@@ -213,7 +236,8 @@
     "url": "https://cylabacademy.org/",
     "type": "interactive",
     "cost": "free",
-    "level": "beginner"
+    "level": "beginner",
+    "verifiedAt": "2026-11-22"
   },
   {
     "id": "owasp-top-10",
@@ -222,7 +246,8 @@
     "url": "https://owasp.org/www-project-top-ten/",
     "type": "article",
     "cost": "free",
-    "level": "intermediate"
+    "level": "intermediate",
+    "verifiedAt": "2026-11-22"
   },
   {
     "id": "nist-csf",
@@ -231,7 +256,8 @@
     "url": "https://www.nist.gov/cyberframework",
     "type": "article",
     "cost": "free",
-    "level": "intermediate"
+    "level": "intermediate",
+    "verifiedAt": "2026-11-22"
   },
   {
     "id": "all-about-circuits-textbook",
@@ -240,7 +266,8 @@
     "url": "https://www.allaboutcircuits.com/textbook/",
     "type": "book",
     "cost": "free",
-    "level": "beginner"
+    "level": "beginner",
+    "verifiedAt": "2026-11-22"
   },
   {
     "id": "mit-2-12-intro-robotics",
@@ -249,7 +276,8 @@
     "url": "https://ocw.mit.edu/courses/2-12-introduction-to-robotics-fall-2005/",
     "type": "course",
     "cost": "free",
-    "level": "intermediate"
+    "level": "intermediate",
+    "verifiedAt": "2026-11-22"
   },
   {
     "id": "modern-robotics",
@@ -258,16 +286,18 @@
     "url": "https://hades.mech.northwestern.edu/index.php/Modern_Robotics",
     "type": "book",
     "cost": "free",
-    "level": "intermediate"
+    "level": "intermediate",
+    "verifiedAt": "2026-11-22"
   },
   {
     "id": "openlearn-ecology",
     "title": "Introducing the environment: Ecology and ecosystems",
     "provider": "The Open University (OpenLearn)",
-    "url": "https://www.open.edu/openlearn/nature-environment/environmental-studies/introducing-the-environment-ecology-and-ecosystems/content-section-0",
+    "url": "https://www.open.edu/openlearn/nature-environment/environmental-studies/introducing-the-environment-ecology-and-ecosystems/content-section-0?active-tab=description-tab",
     "type": "course",
     "cost": "free",
-    "level": "beginner"
+    "level": "beginner",
+    "verifiedAt": "2026-11-22"
   },
   {
     "id": "inaturalist",
@@ -276,7 +306,8 @@
     "url": "https://www.inaturalist.org/",
     "type": "interactive",
     "cost": "free",
-    "level": "beginner"
+    "level": "beginner",
+    "verifiedAt": "2026-11-22"
   },
   {
     "id": "globe-program",
@@ -285,16 +316,8 @@
     "url": "https://www.globe.gov/",
     "type": "interactive",
     "cost": "free",
-    "level": "beginner"
-  },
-  {
-    "id": "nasa-arset-remote-sensing",
-    "title": "Fundamentals of Remote Sensing",
-    "provider": "NASA Earthdata (ARSET)",
-    "url": "https://www.earthdata.nasa.gov/learn/trainings/fundamentals-remote-sensing",
-    "type": "course",
-    "cost": "free",
-    "level": "beginner"
+    "level": "beginner",
+    "verifiedAt": "2026-11-22"
   },
   {
     "id": "nasa-earth-observatory",
@@ -303,6 +326,7 @@
     "url": "https://science.nasa.gov/earth/earth-observatory",
     "type": "article",
     "cost": "free",
-    "level": "beginner"
+    "level": "beginner",
+    "verifiedAt": "2026-11-22"
   }
 ]

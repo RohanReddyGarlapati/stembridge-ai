@@ -162,13 +162,15 @@ describe("catalog integrity", () => {
 });
 
 describe("catalog loading modes", () => {
-  it.skipIf(!seedEnabled)("contains exactly three seed careers and six example.com resources", () => {
-    const catalog = loadCatalog(careersJson, resourcesJson);
-    expect(catalog.careerIds).toHaveLength(3);
-    expect(resourcesJson).toHaveLength(6);
-    for (const { url } of resourcesJson) {
-      expect(url).toMatch(/^https:\/\/example\.com\/stembridge-seed\//);
-    }
+  it("allows a small catalog with placeholder URLs in local seed mode", () => {
+    localSeedMode();
+    const { careers, resources } = releaseFixture();
+    const seedResources = resources.slice(0, 5).map((resource) => ({
+      ...resource, url: `https://example.com/stembridge-seed/${resource.id}`,
+    }));
+    const catalog = loadCatalog(careers.slice(0, 1), seedResources);
+    expect(catalog.careerIds).toEqual([careers[0].id]);
+    for (const resource of seedResources) expect(catalog.getResource(resource.id)).toEqual(resource);
   });
 
   it("protects shared lookup records and nested arrays without freezing the input", () => {

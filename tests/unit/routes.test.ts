@@ -35,7 +35,7 @@ afterEach(() => {
   vi.unstubAllEnvs();
 });
 
-const input = { interests: "robots and coding", tags: [] };
+const input = { interests: "robots and electronics", tags: [] };
 
 function post(path: "recommend" | "roadmap", body: BodyInit, headers: Record<string, string> = {}) {
   return new Request(`https://stembridge.example/api/${path}`, {

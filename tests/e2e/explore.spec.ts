@@ -22,16 +22,13 @@ function latch() {
 
 test("E2E-1/9 shows three careers and ordered catalog links without horizontal scrolling", async ({ page }) => {
   await page.goto("/");
-  if (!process.env.PLAYWRIGHT_BASE_URL) {
-    await expect(page.getByRole("complementary", { name: "Development catalog" })).toContainText("placeholder links");
-  }
+  await expect(page.getByRole("complementary", { name: "Development catalog" })).toHaveCount(0);
   await recommend(page);
   await expect(career(page, robotics)).toBeVisible();
   await career(page, robotics).click();
   const roadmap = page.getByRole("list", { name: "Roadmap steps" });
   await expect(roadmap).toBeVisible();
   const steps = roadmap.locator(":scope > li");
-  if (!process.env.PLAYWRIGHT_BASE_URL) await expect(steps).toHaveCount(4);
   const count = await steps.count();
   expect(count).toBeGreaterThanOrEqual(4);
   expect(count).toBeLessThanOrEqual(6);
@@ -123,7 +120,6 @@ test("E2E-4 preserves the draft and reuses a roadmap in the same exploration", a
   await expect(page.getByRole("list", { name: "Roadmap steps" })).toBeVisible();
   await page.getByRole("button", { name: "Back to careers" }).click();
   await expect(cards(page)).toHaveCount(3);
-  // Software Engineer is guaranteed on the three-career seed. On release, use a different returned card.
   if (await career(page, software).count()) await career(page, software).click();
   else await cards(page).filter({ hasNotText: "Robotics Engineer" }).first().getByRole("button").click();
   await expect(page.getByRole("list", { name: "Roadmap steps" })).toBeVisible();

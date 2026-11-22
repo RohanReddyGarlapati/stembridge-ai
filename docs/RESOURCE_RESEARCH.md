@@ -10,7 +10,7 @@ References: [ARCHITECTURE.md §4](ARCHITECTURE.md#4-catalog-data-model) · [TASK
 | Item | Proposal | Release rule |
 |---|---|---|
 | Careers | 6: AI Engineer, Data Scientist, Cybersecurity Analyst, Robotics Engineer, Software Engineer, Environmental Scientist | 6–8 ✅ |
-| Resources | **34**, all automatically checked (§3) | 25–35 ✅ |
+| Resources | **33** active, all automatically checked (§3) | 25–35 ✅ |
 | Steps | 5 or 6 per career, 1–2 resources per step | 4–6 steps, 1–3 resources ✅ |
 | Orphan resources | 0: every resource is used by at least one step; 14 are shared across careers | ✅ |
 | Interest tags | All 11 enum tags are used by at least one career | ✅ |
@@ -26,9 +26,9 @@ References: [ARCHITECTURE.md §4](ARCHITECTURE.md#4-catalog-data-model) · [TASK
 | **PARTIAL** | Only the HTTP status or `<title>` could be read: the page needs JavaScript, has bot protection, or blocked automated access. Topics and suitability were **not** confirmed. |
 | **REJECTED** | The URL is gone, moved, or redirects somewhere else. Don't use it. |
 
-All 34 proposed catalog resources are **AUTO-VERIFIED**. PARTIAL and REJECTED candidates are listed separately in §4 and are not in the proposed catalog.
+All 33 active catalog resources are **AUTO-VERIFIED**. Section 4 records partial results, rejected URLs, and later exclusions.
 
-## 3. Proposed resources (34)
+## 3. Proposed resources (33)
 
 Columns map directly to the `Resource` schema (`id`, `title`, `provider`, `url`, `type`, `cost`, `level`). "Used in" lists `careerId/stepId`.
 
@@ -88,7 +88,6 @@ Columns map directly to the `Resource` schema (`id`, `title`, `provider`, `url`,
 | `openlearn-ecology` | Introducing the environment: Ecology and ecosystems | The Open University (OpenLearn) | https://www.open.edu/openlearn/nature-environment/environmental-studies/introducing-the-environment-ecology-and-ecosystems/content-section-0 | course | free | beginner | How ecosystems work and how scientists study human effects on them. | `environmental-scientist/es-ecology` | Loaded, no redirect. Level 1, about 5 hours. Can be started without signing up. |
 | `inaturalist` | iNaturalist | iNaturalist (nonprofit) | https://www.inaturalist.org/ | interactive | free | beginner | Record wildlife observations and contribute to a shared biodiversity dataset. | `environmental-scientist/es-field-data` | Loaded. Posting needs an account. Site points under-13 users to its companion app Seek (see §6). |
 | `globe-program` | The GLOBE Program | GLOBE (NASA-sponsored) | https://www.globe.gov/ | interactive | free | beginner | Collect standardized environmental measurements (air, water, soil, land cover) for NASA science. | `environmental-scientist/es-field-data` | Loaded. Serves students, educators and citizen scientists. |
-| `nasa-arset-remote-sensing` | Fundamentals of Remote Sensing | NASA Earthdata (ARSET) | https://www.earthdata.nasa.gov/learn/trainings/fundamentals-remote-sensing | course | free | beginner | How satellites measure Earth, the kinds of data they produce, and their limits. | `environmental-scientist/es-remote-sensing` | Loaded. 2-hour self-paced training, no prior experience needed. The old `appliedsciences.nasa.gov` URL redirects (§4). |
 | `nasa-earth-observatory` | NASA Earth Observatory | NASA Science | https://science.nasa.gov/earth/earth-observatory | article | free | beginner | Satellite images and articles explaining changes in Earth's land, oceans and atmosphere. | `environmental-scientist/es-remote-sensing` | Loaded. The old `earthobservatory.nasa.gov` domain redirects here with a 301 (§4). |
 
 ## 4. Candidates not in the proposed catalog
@@ -122,8 +121,12 @@ Columns map directly to the `Resource` schema (`id`, `title`, `provider`, `url`,
 | picoCTF | https://picoctf.org/ | Rebranded. The page says "picoCTF.org is now CyLab Security Academy" (existing logins honoured from before May 8, 2026). Replaced by `cylab-security-academy`. |
 | scikit-learn tutorial index | https://scikit-learn.org/stable/tutorial/index.html | First fetch 503, second **404**. Replaced by `scikit-learn-getting-started`. |
 | 3Blue1Brown neural-networks topic page | https://www.3blue1brown.com/topics/neural-networks | Redirects to the homepage (`/?topic=neural-networks`). There is no stable topic page to link to. |
-| NASA ARSET (old URL) | https://appliedsciences.nasa.gov/get-involved/training/english/arset-fundamentals-remote-sensing | 301 to the Earthdata ARSET hub. Use the new training URL in §3.5. |
+| NASA ARSET (old URL) | https://appliedsciences.nasa.gov/get-involved/training/english/arset-fundamentals-remote-sensing | 301 to the Earthdata ARSET hub. See the later exclusion in §4.4. |
 | NASA Earth Observatory (old domain) | https://earthobservatory.nasa.gov/ | 301 to `science.nasa.gov`. Use the new URL. |
+
+### 4.4 Excluded after research
+
+NASA Earthdata (ARSET) **Fundamentals of Remote Sensing** (`nasa-arset-remote-sensing`) was among the 34 original proposals. The 2026-11-19 automated pass reached the [training landing page](https://www.earthdata.nasa.gov/learn/trainings/fundamentals-remote-sensing), which described a two-hour self-paced introduction to how satellites measure Earth and the limits of their data. On 2026-11-22, the course was excluded because lessons require registration and authenticated lesson access was not verified. See the [human review tracker](HUMAN_REVIEW_TRACKER.md).
 
 ## 5. Proposed careers and roadmaps
 
@@ -209,7 +212,7 @@ All step descriptions are under 60 words and 600 characters. Step IDs are kebab-
 | 2 | `es-field-data` | Observe nature and collect field data | Record plants, animals and environmental measurements using shared scientific protocols, and contribute to real research datasets. | Field observation, Data collection | Ongoing | `inaturalist`, `globe-program` |
 | 3 | `es-statistics` | Learn statistics for science | Learn to summarize measurements, compare groups and test whether a pattern in your data is meaningful. | Statistics, Probability | 6–8 weeks | `seeing-theory`, `openintro-statistics` |
 | 4 | `es-data` | Analyze environmental data with Python | Use Python and pandas to clean, combine and plot real ecological survey data. | Python, Data analysis, Data visualization | 4–6 weeks | `data-carpentry-python-ecology`, `py4e` |
-| 5 | `es-remote-sensing` | See Earth from space with satellite data | Learn how satellites measure land, oceans and air, and explore images that show environmental change over time. | Remote sensing, Satellite imagery | 2–3 weeks | `nasa-arset-remote-sensing`, `nasa-earth-observatory` |
+| 5 | `es-remote-sensing` | See Earth from space with satellite data | Learn how satellites measure land, oceans and air, and explore images that show environmental change over time. | Remote sensing, Satellite imagery | 2–3 weeks | `nasa-earth-observatory` |
 
 ## 6. Schema and release-rule compliance check
 
@@ -223,15 +226,15 @@ Checked by hand against `lib/schemas.ts`, `lib/catalogSchemas.ts` and `lib/catal
 | `skills` 1–4 per step, `keySkills` 3–5 (each ≤ 80 chars) | ✅ |
 | `tags` 2–5 per career, unique, from the enum; all 11 tags used | ✅ `robots`, `coding`, `space`, `biology`, `environment`, `building`, `health`, `data-math`, `electronics`, `security`, `design` |
 | 4–6 steps per career, 1–3 unique resources per step | ✅ 5 or 6 steps, 1–2 resources |
-| Every `resourceId` resolves; no orphans | ✅ All 34 used |
+| Every `resourceId` resolves; no orphans | ✅ All 33 used |
 | URLs absolute HTTPS, no credentials, no local or IP hosts, no `utm_*`, unique ignoring fragments | ✅ |
 | No `example.com` | ✅ |
 | `type`, `cost`, `level` enums | ✅ |
-| `verifiedAt` valid ISO date, not in the future, **human-checked within 14 days of release** | ⚠️ Pending. Set only after the manual check in TASKS T5.4. |
+| `verifiedAt` valid ISO date, not in the future, **human-checked within 14 days of release** | ✅ All 33 human verification dates recorded as 2026-11-22. Recheck freshness against the release date. |
 
 ## 7. Open issues for the developer
 
-1. **Human verification is still required (AC-6).** Open all 34 URLs, confirm the content and that it's suitable for teenagers, then set `verifiedAt`. Run `npm run check-links` afterwards. Several hosts (Khan Academy, docs.ros.org, SparkFun, climate.gov) block automated requests and may need allow-listing or manual handling in `check-links`.
+1. **Human review completed on 2026-11-22.** See the [verification checklist](RESOURCE_VERIFICATION_CHECKLIST.md). Run `npm run check-links` against the production catalog and resolve eligible inconclusive results using the [test plan](TEST_PLAN.md#manual-resolution-of-inconclusive-link-checks).
 2. **Accounts and minors.** These resources need or encourage accounts:
    - `cylab-security-academy` (account required; site says middle school through adults).
    - `inaturalist` (account to post; the site points under-13 users to Seek).
@@ -239,7 +242,7 @@ Checked by hand against `lib/schemas.ts`, `lib/catalogSchemas.ts` and `lib/catal
    - `globe-program` (student data entry usually goes through a teacher).
 
    None of them collects data through STEMBridge, but consider a short "some resources ask you to create an account; ask a parent or teacher first" note in the UI copy.
-3. **Difficulty skews intermediate.** 15 of 34 resources are intermediate (college level), mostly in the AI, robotics and math steps. The beginner steps come first in every roadmap, but if younger students struggle, the Khan Academy pages in §4.2 are the best beginner substitutes once manually checked.
+3. **Intermediate resources.** 15 of 33 resources are intermediate (college level), mostly in the AI, robotics and math steps. The beginner steps come first in every roadmap, but if younger students struggle, the Khan Academy pages in §4.2 are the best beginner substitutes once manually checked.
 4. **Documentation alignment.** ARCHITECTURE §4.1 still lists the old initial career set (it includes biomedical engineer and mechanical/aerospace as optional). Update it to these six careers when the catalog is written. With no `health`-field career, the fallback "diverse default set (three different fields)" will use technology, engineering and science, which still satisfies the rule.
 5. **Tag fit.** `health` maps only to `data-scientist` and `environmental-scientist`, and `space` maps to `robotics-engineer` and `environmental-scientist`. Check that these matches feel reasonable when the keyword map is built (T2.1).
 6. **Old course materials.** MIT 2.12 dates from 2005, and NIST AI RMF 1.0 is under revision. Both are still authoritative, but check them again at each release.
